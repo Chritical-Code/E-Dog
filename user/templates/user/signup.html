@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+	<!--Head-->
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - Sign Up</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+            <!--header-->
+			{% include "browse/header.html" %}
+			
+			<!--page title-->
+			<h2>Sign Up</h2>
+			
+			<!--page body-->
+			<p>Sign Up Here:</p>
+
+            <!--signup form-->
+            <form id="signupFormID" class="row2" action="/user/dosignup/" method="post">
+                {% csrf_token %}
+                {{signupForm}}
+				<input type="submit" value="Submit">
+            </form>
+			
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

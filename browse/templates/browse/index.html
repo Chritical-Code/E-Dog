@@ -1,0 +1,63 @@
+<!--Browse Index-->
+
+<!--Stylesheets-->
+<!DOCTYPE html>
+
+
+<html lang="en-US">
+
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<!--script-->
+		
+
+		<meta charset="utf-8" />
+		<title>eDog - Browse</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+			<!--header-->
+			{% include "browse/header.html" %}
+
+			<!--search bar-->
+			{% include "browse/searchbar.html" %}
+			
+			<!--categories-->
+			<br><h2>Categories</h2>
+			<div class="categoryLinks">
+				<a class="category" href="search/chihuahua/"><p>chihuahua</p></a>
+				<a class="category" href="search/german shepherd/"><p>german shepherd</p></a>
+				<a class="category" href="search/corso/"><p>corso</p></a>
+				<a class="category" href="search/pitbull/"><p>pitbull</p></a>
+			</div>
+
+			<!--posts-->
+			<h2>Featured</h2>
+			<div class="browseRow">
+				{% include "post/fullposts.html" %}
+			</div>
+
+			<!--posts again-->
+			<h2>Recent</h2>
+			<div class="browseRow">
+				{% include "post/fullposts.html" %}
+			</div>
+
+			<!--posts again-->
+			<h2>Nearby</h2>
+			<div class="browseRow">
+				{% include "post/fullposts.html" %}
+			</div>
+
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

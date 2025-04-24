@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+	<!--Head-->
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - Search</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+            <!--header-->
+			{% include "browse/header.html" %}
+
+			<!--search bar-->
+			{% include "browse/searchbar.html" %}
+
+			<script>
+				document.getElementById("id_searcho").value= "{{searchStr}}"
+			</script>
+
+
+			<h2>Search Results:</h2>
+
+			<div class="row2">
+				{% include "post/fullposts.html" %}
+			</div>
+
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+	<!--Head-->
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - Manage Posts</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+            <!--header-->
+			{% include "browse/header.html" %}
+			
+			<!--page title-->
+			<h2>Manage Posts</h2>
+
+            <!--create post button-->
+			<div class="row">
+				<button class="buttonLink" onclick="window.location.href='/post/tryCreatePost/';"><p>New Post</p></button>
+			</div>
+			
+			<!--page body-->
+			<p>These are your posts:</p>
+
+			<!--show editable posts-->
+			<div class="row2">
+				{% if fullPosts %}
+					{% for fullPost in fullPosts %}
+        				<a class="divPost" href="/post/edit/{{fullPost.post.id}}/">
+							<!--images-->
+			    			<div class="imageBox">
+			        			<img class="browsePostImage" src="{{fullPost.image.photo.url}}">
+							</div>
+
+							<!--info-->
+							<p>{{fullPost.post.breeds}}</p>
+							<p>${{fullPost.post.price}}</p>
+						</a>
+					{% endfor %}
+				{% else %}
+					<p>No posts are available.</p>
+				{% endif %}
+			</div>
+			
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

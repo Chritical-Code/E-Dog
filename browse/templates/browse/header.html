@@ -1,0 +1,12 @@
+<!--Header/Logo-->
+<div class="header">
+    <div id="logo">
+        <a href='/browse/'><h1>e-Dog</h1></a>
+    </div>
+</div>
+
+<!--get csrf for fetch-->
+{% csrf_token %}
+<script>
+	const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+</script>

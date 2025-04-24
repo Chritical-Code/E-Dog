@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+	<!--Head-->
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - Post</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+			<!--header-->
+			{% include "browse/header.html" %}
+			
+			<!--post info-->
+			{% if post %}
+				<!--username-->
+				<a href="/user/{{post.user.username}}"><h2 class="aUsername">{{post.user}}</h2></a>
+
+				<!--images-->
+				<div class="allImage">
+					{% for image in allImages %}
+						<div class="imageBox">
+							<img class="image" src="{{image.photo.url}}">
+						</div>
+					{% endfor %}
+				</div>
+
+				<!--info-->
+				<p>Price: ${{post.price}}</p>
+				<p>Breeds: {{post.breeds}}</p>
+				<p>Born: {{post.age}}</p>
+				<p>Description: {{post.description}}</p>
+				<p>Date Posted: {{post.dateCreated}}</p>
+			{% else %}
+				<p>no post</p>
+			{% endif %}
+
+			<!--pin button-->
+			<input id="postPK" type="hidden" value="{{post.pk}}"/>
+			<button id="pinButton" class="buttonLink" onclick="pinPost()">Pin</button>
+			<script src="{% static 'post/pinPost.js' %}"></script>
+
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

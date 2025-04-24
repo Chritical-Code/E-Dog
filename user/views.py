@@ -1,0 +1,234 @@
+#User views
+
+#import
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.http import JsonResponse
+
+from .forms import LoginForm, SignupForm
+from post.models import Post, Image
+from.models import Pinned
+
+
+
+#views
+#index
+def index(request, reqName):
+    #retrieve all of this user's posts
+    user = get_object_or_404(User, username=reqName)
+    userKey = user.pk
+    userPosts = Post.objects.filter(user=userKey)
+
+    #create a class to combine posts and images
+    class PostAndImage:
+        def __init__(self, inPost, inImage):
+            self.post = inPost
+            self.image = inImage
+    
+    #combine posts with their respective images         #Process:
+    fullPosts = []                                      #declare empty list
+    for post in userPosts:                              #for each post:
+        allImages = Image.objects.filter(post=post.pk)  #get all images
+        
+        if allImages:                                   #use first image, if exists
+            image = allImages[0]
+        else:
+            image = None
+
+        aPost = PostAndImage(post, image)               #create a temporary post object
+        fullPosts.append(aPost)                         #append post object to list
+
+    context = {
+        "user": user,
+        "fullPosts": fullPosts,
+    }
+
+    return render(request, "user/index.html", context)
+
+
+@login_required
+#show account
+def showAccount(request):
+    context = {
+        "user": request.user,
+    }
+
+    return render(request, "user/myAccount.html", context)
+
+#login
+def loginPage(request):
+    loginForm = LoginForm()
+
+    context = {
+        "loginForm": loginForm
+    }
+
+    return render(request, "user/login.html", context)
+
+
+#do Login
+def doLogin(request):
+    username = request.POST["username"]
+    password = request.POST["password"]
+    destination = request.POST.get('next')
+
+    #fix destination if its empty
+    if(destination == ""):
+        destination = "/user/account/"
+
+    user = authenticate(request, username=username, password=password)
+
+    if user is not None:
+        login(request, user)
+        # Redirect to a success page.
+        return redirect(destination)
+
+    else:
+        # Return an 'invalid login' error message
+        return redirect(destination)
+    
+   
+#do Logout
+def doLogout(request):
+    logout(request)
+    # Redirect to a success page.
+    return redirect("/user/login/")
+
+
+#sign up
+def signUp(request):
+    signupForm = SignupForm()
+    
+    context = {
+        "signupForm": signupForm,
+    }
+    return render(request, "user/signup.html", context)
+
+
+#do signup
+def doSignUp(request):
+    #Get data from form
+    username = request.POST["username"]
+    password = request.POST["password"]
+    email = request.POST["email"]
+    firstname = request.POST["firstname"]
+    lastname = request.POST["lastname"]
+
+    #verify user name and email are available
+    makeAccount = False
+    if(not User.objects.filter(username=username)):
+        if(not User.objects.filter(email=email)):
+            makeAccount = True
+
+    #if allowed, make the account and sign in
+    if(makeAccount):
+        user = User.objects.create_user(username, email, password)
+        user.first_name = firstname
+        user.last_name = lastname
+        user.save()
+
+        userLogin = authenticate(request, username=username, password=password)
+        if userLogin is not None:
+            login(request, userLogin)
+    
+    #redirect to account page
+    return redirect("/user/account/")
+
+
+#pinned posts
+def pinned(request):
+    #retrieve all of user's pinned posts
+    pinned = Pinned.objects.filter(user=request.user.pk)[0]
+
+    pinnedPosts = list()
+    for post in pinned.pinnedPosts:
+        pinnedPosts.append(Post.objects.filter(pk=int(post))[0])
+        
+
+    #create a class to combine posts and images
+    class PostAndImage:
+        def __init__(self, inPost, inImage):
+            self.post = inPost
+            self.image = inImage
+
+    #combine posts with their respective images         #Process:
+    fullPosts = []                                      #declare empty list
+    for post in pinnedPosts:                            #for each post:
+        allImages = Image.objects.filter(post=post.pk)  #get all images
+        
+        if allImages:                                   #use first image, if exists
+            image = allImages[0]
+        else:
+            image = None
+
+        aPost = PostAndImage(post, image)               #create a temporary post object
+        fullPosts.append(aPost)                         #append post object to list
+
+    context = {
+        "fullPinnedPosts": fullPosts,
+    }
+    return render(request, "user/pinned.html", context)
+
+#fetch pin post
+def fetchTogglePin(request):
+    #get data from post
+    inPostPK = request.POST["postPK"]
+    
+    #check if we have a pins
+    checkPins = Pinned.objects.filter(user=request.user.pk)
+    if len(checkPins) > 0:
+        userPinned = checkPins[0]
+    #else make a pins
+    else:
+        userPinned = Pinned()
+        userPinned.user = request.user
+        userPinned.pinnedPosts = []
+        userPinned.save()
+
+    #if pin
+    action = request.POST["action"]
+    if action == "Pin":
+        #check if this post is already pinned
+        addPin = True
+        for pin in userPinned.pinnedPosts:
+            if pin == inPostPK:
+                addPin = False
+
+        #add post to pin if not duplicate
+        if addPin:
+            userPinned.pinnedPosts.append(inPostPK)
+            userPinned.save()
+
+        buttonToggle = "Unpin"
+
+    #if unpin
+    elif action == "Unpin":
+        #remove any pins matching selected number
+        for pin in userPinned.pinnedPosts:
+            if pin == inPostPK:
+                userPinned.pinnedPosts.remove(inPostPK)
+        
+        userPinned.save()
+        buttonToggle = "Pin"
+
+    #if getToggle
+    else:
+        #check if this post is already pinned
+        hasPin = False
+        for pin in userPinned.pinnedPosts:
+            if pin == inPostPK:
+                hasPin = True
+        
+        if hasPin:
+            buttonToggle = "Unpin"
+        else:
+            buttonToggle = "Pin"
+
+    context = {
+        "count": len(userPinned.pinnedPosts),
+        "buttonToggle": buttonToggle,
+    }
+
+    return JsonResponse(context, safe=True)

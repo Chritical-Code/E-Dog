@@ -1,0 +1,183 @@
+/*Main global CSS*/
+.content {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+p{
+  margin: 1%;
+}
+
+a{
+  margin: 1%;
+  text-decoration: none;
+  color:rgb(0, 0, 0);
+}
+
+a:hover{
+  color: rgb(78, 78, 78);
+}
+
+
+
+
+/*Post related CSS*/
+.row{
+  display: flex;
+  justify-content: center;
+  overflow: auto;
+}
+
+.row2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.browseRow{
+  display: flex;
+  
+  overflow: auto;
+  width: 90%;
+  margin: auto;
+}
+
+.divPost{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 300px;
+  height: 250px;
+  margin: 1%;
+  
+  text-align: left;
+}
+
+.aUsername{
+  margin: 1%;
+}
+
+
+
+
+/*Category CSS*/
+.categoryLinks{
+  display: flex;
+  margin: auto;
+  overflow: auto;
+}
+
+.category{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 150px;
+  height: 50px;
+  margin: 2px;
+
+  border: 8px outset rgb(78, 78, 78);
+}
+
+
+
+
+/*Header CSS*/
+.header{
+  display: flex;
+  justify-content: center;
+}
+
+#logo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 20%;
+  height: 50px;
+  margin: 1%;
+}
+
+
+
+/*Footer CSS*/
+.footer{
+  display: flex;
+  position: fixed;
+  justify-content: center;
+
+  left: 0;
+  bottom: 0;
+  width: 100%;
+
+  background-color: rgb(43, 43, 43);
+  color: white;
+  text-align: center;
+}
+
+.footerLink{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  
+  width: 10%;
+  height: 50px;
+  margin: 1%;
+  
+  border: 8px outset rgb(182, 182, 182);
+
+  
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.footerLink:hover{
+  color: rgb(180, 180, 180);
+}
+
+
+/*image*/
+.allImage{
+  display: flex;
+  flex-direction: row;
+
+  overflow: auto;
+  margin: auto;
+  width: 90%;
+}
+
+.imageBox{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: auto;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+.image{
+  width: 300px;
+  height: 169px;
+}
+
+.browsePostImage{
+  width: 300px;
+  height: 169px;
+}
+
+
+/*buttons*/
+.buttonLink{
+  width: 100px;
+  height: 40px;
+  justify-content: center;
+  margin: auto;
+  margin-top: 20px;
+}

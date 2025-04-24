@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+	<!--Head-->
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - User</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+            <!--header-->
+			{% include "browse/header.html" %}
+
+			<h2>Login</h2>
+
+            <!--login form-->
+            <form id="loginFormID" action="/user/dologin/" method="post">
+                {% csrf_token %}
+                {{loginForm}}
+				<input type="hidden" name="next" value="{{ request.GET.next }}"/>
+				<input type="submit" value="Submit">
+            </form>
+
+			<!--sign up button-->
+			<p></p>
+			<div class="row">
+				<button class="buttonLink" onclick="window.location.href='/user/signup/';"><p>Sign Up</p></button>
+			</div>
+
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

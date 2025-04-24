@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+	<!--Head-->
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - Edit Post</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+            <!--header-->
+			{% include "browse/header.html" %}
+			
+			<!--page title-->
+			<h2>Edit Post</h2>
+
+
+			<!--delete pics section-->
+			<h3>Pictures:</h3>
+			<div id="photoDiv" class="allImage">
+
+				<!--images-->
+				{% for image in allImages %}
+					<div id="imageAndButton{{image.pk}}" class="imageBox">
+						<div class="imageBox">
+							<img class="image" id="image{{image.pk}}" src="{{image.photo.url}}">
+						</div>
+
+						<!--delete button-->
+						<button id="button{{image.pk}}" class="buttonLink" type="button" onclick="deleteImage('{{image.pk}}')">
+							<p>🗑️</p>
+						</button>
+					</div>
+				{% endfor %}
+			</div>
+			<script src="{% static 'post/deletePic.js' %}"></script>
+
+
+			<!--add image form-->
+			<h3>Add Image</h3>
+            <div id="addImage" class="">
+				<!--select file button-->
+				<input id="selectFile" type="file" accept="image/*"/>
+
+				<!--upload button-->
+				<button id="uploadButton" class="buttonLink" type="button" onclick="uploadPicture()">
+					<p>Upload</p>
+				</button>
+
+				<input type="hidden" id="postPK" value="{{postPK}}"/>
+				<script src="{% static 'post/uploadPic.js' %}"></script>
+            </div>
+
+
+            <!--edit post form-->
+			<h3>Add Details</h3>
+            <form id="editPostFormID" class="row2" action="/post/doedit/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{editPostForm}}
+                <input type="hidden" name="postPK" value="{{postPK}}"/>
+				<input type="submit" value="Save" class="buttonLink">
+            </form>
+
+
+			<!--delete buttons (on a form)-->
+			<form id="deleteButtonsForm" class="row2" action="/post/dodelete/" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<button id="deleteButton" class="buttonLink" type="button" onclick="clickDelete()"><p>Delete</p></button>
+				<button id="cancelButton" class="buttonLink" type="button" onclick="clickCancel()"><p>Cancel</p></button>
+				<input id="confirmButton" class="buttonLink" type="submit" value="Confirm">
+				<input type="hidden" name="postPK" value="{{postPK}}"/>
+			</form>
+			<script src="{% static 'post/deletePost.js' %}"></script>
+			
+
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

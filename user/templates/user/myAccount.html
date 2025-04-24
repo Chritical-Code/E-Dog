@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+
+	<!--Head-->
+	<head>
+		<!--style-->
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - Account</title>
+	</head>
+
+
+	<!--Body-->
+	<body>
+		<div class="content">
+            <!--header-->
+			{% include "browse/header.html" %}
+			
+			<!--page title-->
+			<h2>Account</h2>
+			
+			<!--page body-->
+			<a href="/user/{{user.username}}"><p>Username: {{user.username}}</p></a>
+			<p>Name: {{user.first_name}} {{user.last_name}}</p>
+			<p>Email: {{user.email}}</p>
+
+
+			<!--sign out button-->
+			<div class="row">
+				<button class="buttonLink" onclick="window.location.href='/user/logout/';"><p>Log Out</p></button>
+			</div>
+			
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>
