@@ -140,11 +140,21 @@ def doSignUp(request):
 #pinned posts
 def pinned(request):
     #retrieve all of user's pinned posts
-    pinned = Pinned.objects.filter(user=request.user.pk)[0]
+    checkPins = Pinned.objects.filter(user=request.user.pk)
+    if len(checkPins) > 0:
+        pinned = checkPins[0]
+    #else make a pins
+    else:
+        userPinned = Pinned()
+        userPinned.user = request.user
+        userPinned.pinnedPosts = []
+        userPinned.save()
+        pinned = userPinned
 
     pinnedPosts = list()
     for post in pinned.pinnedPosts:
-        pinnedPosts.append(Post.objects.filter(pk=int(post))[0])
+        if len(Post.objects.filter(pk=int(post))) > 0:
+            pinnedPosts.append(Post.objects.filter(pk=int(post))[0])
         
 
     #create a class to combine posts and images
