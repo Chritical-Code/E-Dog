@@ -136,7 +136,7 @@ def doSignUp(request):
     #redirect to account page
     return redirect("/user/account/")
 
-
+@login_required
 #pinned posts
 def pinned(request):
     #retrieve all of user's pinned posts
