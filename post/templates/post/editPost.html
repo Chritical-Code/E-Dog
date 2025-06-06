@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 
 <html lang="en-US">
-
-	<!--Head-->
 	<head>
 		<!--style-->
 		{% load static %}
@@ -12,8 +10,6 @@
 		<title>eDog - Edit Post</title>
 	</head>
 
-
-	<!--Body-->
 	<body>
 		<div class="content">
             <!--header-->
@@ -22,11 +18,9 @@
 			<!--page title-->
 			<h2>Edit Post</h2>
 
-
 			<!--delete pics section-->
 			<h3>Pictures:</h3>
 			<div id="photoDiv" class="allImage">
-
 				<!--images-->
 				{% for image in allImages %}
 					<div id="imageAndButton{{image.pk}}" class="imageBox">
@@ -43,7 +37,6 @@
 			</div>
 			<script src="{% static 'post/deletePic.js' %}"></script>
 
-
 			<!--add image form-->
 			<h3>Add Image</h3>
             <div id="addImage" class="">
@@ -59,7 +52,6 @@
 				<script src="{% static 'post/uploadPic.js' %}"></script>
             </div>
 
-
             <!--edit post form-->
 			<h3>Add Details</h3>
             <form id="editPostFormID" class="row2" action="/post/doedit/" method="post" enctype="multipart/form-data">
@@ -68,7 +60,6 @@
                 <input type="hidden" name="postPK" value="{{postPK}}"/>
 				<input type="submit" value="Save" class="buttonLink">
             </form>
-
 
 			<!--delete buttons (on a form)-->
 			<form id="deleteButtonsForm" class="row2" action="/post/dodelete/" method="post" enctype="multipart/form-data">
@@ -80,10 +71,8 @@
 			</form>
 			<script src="{% static 'post/deletePost.js' %}"></script>
 			
-
 			<!--footer-->
 			{% include "browse/footer.html" %}
 		</div>
 	</body>
-
 </html>

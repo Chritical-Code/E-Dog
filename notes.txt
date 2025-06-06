@@ -1,0 +1,4 @@
+Todo
+
++make it look better :)
+-get the home page looking right
