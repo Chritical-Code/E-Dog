@@ -1,5 +1,4 @@
 #User views
-
 #import
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
@@ -10,7 +9,6 @@ from django.http import JsonResponse
 from .forms import LoginForm, SignupForm
 from post.models import Post, Image
 from.models import Pinned
-
 
 
 #views
@@ -47,9 +45,8 @@ def index(request, reqName):
 
     return render(request, "user/index.html", context)
 
-
-@login_required
 #show account
+@login_required
 def showAccount(request):
     context = {
         "user": request.user,
@@ -66,7 +63,6 @@ def loginPage(request):
     }
 
     return render(request, "user/login.html", context)
-
 
 #do Login
 def doLogin(request):
@@ -89,13 +85,11 @@ def doLogin(request):
         # Return an 'invalid login' error message
         return redirect(destination)
     
-   
 #do Logout
 def doLogout(request):
     logout(request)
     # Redirect to a success page.
     return redirect("/user/login/")
-
 
 #sign up
 def signUp(request):
@@ -105,7 +99,6 @@ def signUp(request):
         "signupForm": signupForm,
     }
     return render(request, "user/signup.html", context)
-
 
 #do signup
 def doSignUp(request):
@@ -136,8 +129,8 @@ def doSignUp(request):
     #redirect to account page
     return redirect("/user/account/")
 
-@login_required
 #pinned posts
+@login_required
 def pinned(request):
     #retrieve all of user's pinned posts
     checkPins = Pinned.objects.filter(user=request.user.pk)
@@ -181,7 +174,9 @@ def pinned(request):
     }
     return render(request, "user/pinned.html", context)
 
-#fetch pin post
+#fetch 
+# can pin, unpin, or get pin status
+@login_required
 def fetchTogglePin(request):
     #get data from post
     inPostPK = request.POST["postPK"]

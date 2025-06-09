@@ -1,5 +1,4 @@
 #Post views
-
 #import
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Image
@@ -7,7 +6,6 @@ from .forms import CreatePost, UploadImage
 from django.contrib.auth.decorators import login_required
 import datetime, decimal, os, random, json
 from django.http import JsonResponse
-
 
 #views
 #index
@@ -22,7 +20,6 @@ def index(request, postID):
     }
 
     return render(request, "post/index.html", context)
-
 
 @login_required
 #post Manager
@@ -54,8 +51,6 @@ def postManager(request):
     }
 
     return render(request, "post/postManager.html", context)
-
-
 
 #try create post
 @login_required
@@ -143,8 +138,6 @@ def doEditPost(request):
 
     return redirect("/post/manage/")
 
-
-
 #do delete post
 @login_required
 def doDeletePost(request):
@@ -169,8 +162,6 @@ def doDeletePost(request):
 
     return redirect("/post/manage")
 
-
-
 #fetch
 #edit post delete image
 def fetchEditDeletePic(request):
@@ -189,7 +180,6 @@ def fetchEditDeletePic(request):
     #misc
     context = {}
     return JsonResponse(context, safe=True)
-
 
 #upload image
 def fetchUploadImage(request):
