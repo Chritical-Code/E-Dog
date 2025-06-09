@@ -1,4 +1,15 @@
 /*Main global CSS*/
+:root {
+  --textColor: #ffffff;
+  --headerBGColor: #252525;
+  --contentBGColor: #ffffff;
+  --iconBGColor: #303030;
+}
+
+body {
+  background-color: var(--headerBGColor);
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -6,6 +17,7 @@
   width: 100%;
   margin: auto;
   text-align: center;
+  background-color: var(--contentBGColor);
 }
 
 p{
@@ -20,6 +32,10 @@ a{
 
 a:hover{
   color: rgb(78, 78, 78);
+}
+
+.glue {
+  flex-grow: 1;
 }
 
 
@@ -92,18 +108,40 @@ a:hover{
 .header{
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 200px;
+  background-color: var(--headerBGColor);
 }
 
 #logo{
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
 
-  width: 20%;
-  height: 50px;
-  margin: 1%;
+  white-space: nowrap;
+}
+#logo a{
+  font-size: 100px;
+  font-weight: bold;
+  color: var(--textColor);
 }
 
+.headerButtonDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.headerButton{
+  justify-content: center;
+  height: 100px;
+  width: 100px;
+  
+  background-color: var(--iconBGColor);
+  color: var(--textColor);
+  font-size: 50px;
+  font-weight: bold;
+}
 
 
 /*Footer CSS*/
@@ -111,29 +149,31 @@ a:hover{
   display: flex;
   position: fixed;
   justify-content: center;
+  align-items: center;
 
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 200px;
 
-  background-color: rgb(43, 43, 43);
+  background-color: var(--headerBGColor);
   color: white;
   text-align: center;
 }
 
 .footerLink{
   display: flex;
-  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  white-space: nowrap;
   
-  width: 10%;
-  height: 50px;
-  margin: 1%;
+  width: 200px;
+  height: 100px;
   
-  border: 3px outset rgb(182, 182, 182);
-
-  
-  color: rgb(255, 255, 255);
+  border: 3px outset white;
+  color: white;
+  background-color: var(--iconBGColor);
+  font-size: 30px;
   text-decoration: none;
 }
 
