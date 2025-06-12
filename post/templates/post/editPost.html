@@ -58,7 +58,7 @@
                 {% csrf_token %}
                 {{editPostForm}}
                 <input type="hidden" name="postPK" value="{{postPK}}"/>
-				<input type="submit" value="Save" class="buttonLink">
+				<input type="button" value="Save" class="buttonLink" onclick="submitEditPostForm()">
             </form>
 
 			<!--delete buttons (on a form)-->

@@ -2,4 +2,6 @@ Todo
 
 +make it look better :)
 -get the home page looking right
--figure out how to do mobile and desktop versions
+-learn proper desktop/mobile dev
+
++bugs

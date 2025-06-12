@@ -1,5 +1,14 @@
+//save pending pictures and submit the form
+async function submitEditPostForm(){
+    await uploadPicture();
+    
+    //submit the form
+    const form = document.getElementById("editPostFormID");
+    form.submit();
+}
+
 //Add picture button
-function uploadPicture(){
+async function uploadPicture(){
     //get data from document
     imageField = document.getElementById("selectFile");
     postPK = document.getElementById("postPK").value;
@@ -7,14 +16,14 @@ function uploadPicture(){
     if(imageField.files.length > 0){
         //check file size first
         if(true){
-        //make a formdata instead
-        const image = imageField.files[0];
-        const formData = new FormData();
-        formData.append("photo", image);
-        formData.append("postPK", postPK);
-    
-        //fetch upload it
-        upload(formData);
+            //make a formdata instead
+            const image = imageField.files[0];
+            const formData = new FormData();
+            formData.append("photo", image);
+            formData.append("postPK", postPK);
+            
+            //fetch upload it
+            await upload(formData);
         }
     } else{
         console.log("No file selected");
