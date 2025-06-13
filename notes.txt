@@ -1,7 +1,6 @@
 Todo
 
 +make it look better :)
--get the home page looking right
--learn proper desktop/mobile dev
-
-+bugs
+-implement new layout
+ .removing footer
+ .reworking header
