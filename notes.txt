@@ -1,4 +1,8 @@
 Todo
 
 +make it look better :)
--bigger search bar
+-
+
+
+Later
++Rework fullpost sections

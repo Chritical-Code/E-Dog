@@ -24,13 +24,17 @@ p {
   margin: 0px;
 }
 
-a{
+a {
   text-decoration: none;
   color:rgb(0, 0, 0);
   margin: 0px;
 }
 
-a:hover{
+h2 {
+  margin: 0px;
+}
+
+a:hover {
   color: rgb(78, 78, 78);
 }
 
@@ -57,20 +61,26 @@ a:hover{
 
 .browseRow{
   display: flex;
-  
-  overflow: auto;
-  width: 80%;
+  overflow: scroll;
+  align-items: center;
+
+  margin-bottom: 80px;
+  height: 250px;
+  width: 90%;
+  border: 4px solid var(--headerBGColor);
 }
 
 .divPost{
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  text-align: center;
 
   width: 300px;
-  height: 250px;
-  
-  text-align: left;
+  height: 90%;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 2px dashed var(--headerBGColor);
 }
 
 
@@ -176,10 +186,21 @@ a:hover{
   height: 169px;
 }
 
-/*
-/*buttons*/
-.buttonLinkxxx{
-  width: 100px;
-  height: 40px;
+
+/*searchbar*/
+.searchbarForm{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 50px;
+  margin-bottom: 40px;
+}
+
+.searchbarForm input {
+  margin-left: 10px;
+  width: 40%;
+  height: 20px;
 }
