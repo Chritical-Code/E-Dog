@@ -1,6 +1,4 @@
 Todo
 
 +make it look better :)
--implement new layout
- .removing footer
- .reworking header
+-bigger search bar
