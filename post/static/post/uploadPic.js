@@ -64,7 +64,9 @@ function appendImage(inJson){
     const imgAndButton = document.createElement("div");
     imgAndButton.classList.add("imageBox");
     imgAndButton.id = "imageAndButton" + inJson.imgPK;
-    photoDiv.appendChild(imgAndButton);
+
+    //append imageAndButton before the last glue
+    photoDiv.insertBefore(imgAndButton, photoDiv.children[photoDiv.children.length - 1]);
 
     //image div
     const imageBox = document.createElement("div");

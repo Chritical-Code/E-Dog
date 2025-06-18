@@ -82,6 +82,24 @@ a:hover {
   border: 2px solid var(--headerBGColor);
 }
 
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 90%;
+  margin: 20px;
+}
+.details h2 {
+  color: black;
+  font-size: 24px;
+}
+.details p {
+  margin-bottom: 20px;
+  text-align: center;
+  max-width: 500px;
+}
+
 
 
 /*Header CSS*/
@@ -166,15 +184,16 @@ a:hover {
   overflow-x: scroll;
   align-items: center;
 
-  height: 300px;
-  width: 80%;
-  border: 2px solid black;
+  height: 200px;
+  width: 90%;
 }
 
 .imageBox{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .image{

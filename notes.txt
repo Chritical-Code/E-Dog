@@ -1,16 +1,13 @@
 Todo
 
 +make it look better :)
--remove the final / from a lot of the links
--better post page
- .first picture is cut off
- .space pictures out slightly
- .organize description section
+-better profile page
 
 
 Later
 +Rework browse posts sections
-+better profile page
 +better everything page
 +add icons to header
 +handle improper image sizes
++deal with empty pic folders
++get your css in order

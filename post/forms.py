@@ -21,7 +21,7 @@ class CreatePost(forms.Form):
     breeds = forms.CharField(label="Breeds:", max_length=100)
     price = forms.DecimalField(label="Price:", decimal_places=2, max_digits=9)
     age = forms.DateField(label="Date Born:", widget=forms.SelectDateWidget(years=validYears))
-    description = forms.CharField(label="Description:", max_length=100, widget=forms.Textarea)
+    description = forms.CharField(label="Description:", max_length=1000, widget=forms.Textarea)
 
 
 #Upload Image

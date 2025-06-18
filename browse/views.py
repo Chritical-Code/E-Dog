@@ -85,4 +85,4 @@ def search(request, searchStr):
 #searchbar
 def searchBar(request):
     searcho = request.POST.get("searcho")
-    return redirect("/browse/search/" + searcho)
+    return redirect("/browse/search/" + searcho + "/")

@@ -21,9 +21,6 @@
 			
 			<!--post info-->
 			{% if post %}
-				<!--username-->
-				<a href="/user/{{post.user.username}}"><h2 class="aUsername">{{post.user}}</h2></a>
-
 				<!--images-->
 				<div class="allImage">
 					<div class="glue"></div>
@@ -34,13 +31,28 @@
 					{% endfor %}
 					<div class="glue"></div>
 				</div>
+				
+				<!--details-->
+				<div class="details">
+					<h2>User</h2>
+					<a href="/user/{{post.user.username}}"><p>{{post.user}}</p></a>
 
-				<!--info-->
-				<p>Price: ${{post.price}}</p>
-				<p>Breeds: {{post.breeds}}</p>
-				<p>Born: {{post.age}}</p>
-				<p>Description: {{post.description}}</p>
-				<p>Date Posted: {{post.dateCreated}}</p>
+					<h2>Price</h2>
+					<p>${{post.price}}</p>
+					
+					<h2>Breeds</h2>
+					<p>{{post.breeds}}</p>
+					
+					<h2>Born</h2>
+					<p>{{post.age}}</p>
+
+					<h2>Description</h2>
+					<p>{{post.description}}</p>
+
+					<h2>Date Posted</h2>
+					<p>{{post.dateCreated}}</p>
+				</div>
+				
 			{% else %}
 				<p>no post</p>
 			{% endif %}
