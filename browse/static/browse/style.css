@@ -67,7 +67,6 @@ a:hover {
   margin-bottom: 80px;
   height: 250px;
   width: 90%;
-  border: 4px solid var(--headerBGColor);
 }
 
 .divPost{
@@ -80,8 +79,9 @@ a:hover {
   height: 90%;
   margin-left: 10px;
   margin-right: 10px;
-  border: 2px dashed var(--headerBGColor);
+  border: 2px solid var(--headerBGColor);
 }
+
 
 
 /*Header CSS*/
@@ -108,13 +108,13 @@ a:hover {
   color: var(--textColor);
 }
 
-.headerButtonDiv{
+.headerButtonDiv {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.headerLink{
+.headerLink {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,16 +122,16 @@ a:hover {
 
   width: 70px;
   height: 70px;
+  border: 2px solid white;
+  border-radius: 20px;
 
-  border: 2px outset white;
   text-decoration: none;
-  background-color: var(--iconBGColor);
+  background-color: var(--headerBGColor);
   color: var(--textColor);
-  font-size: 40px;
+  font-size: 30px;
   font-weight: bold;
 }
-
-.headerLink:hover{
+.headerLink:hover {
   color: rgb(180, 180, 180);
 }
 

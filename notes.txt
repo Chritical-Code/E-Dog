@@ -1,8 +1,12 @@
 Todo
 
 +make it look better :)
--
+-make header look better
 
 
 Later
-+Rework fullpost sections
++Rework browse posts sections
++better post page
++better profile page
++better everything page
++add icons to header
