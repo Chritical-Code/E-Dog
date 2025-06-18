@@ -21,6 +21,7 @@
 			<!--delete pics section-->
 			<h3>Pictures:</h3>
 			<div id="photoDiv" class="allImage">
+				<div class="glue"></div>
 				<!--images-->
 				{% for image in allImages %}
 					<div id="imageAndButton{{image.pk}}" class="imageBox">
@@ -34,6 +35,7 @@
 						</button>
 					</div>
 				{% endfor %}
+				<div class="glue"></div>
 			</div>
 			<script src="{% static 'post/deletePic.js' %}"></script>
 

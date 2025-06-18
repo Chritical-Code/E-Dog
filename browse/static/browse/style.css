@@ -3,7 +3,7 @@
   --textColor: #ffffff;
   --headerBGColor: #252525;
   --contentBGColor: #ffffff;
-  --iconBGColor: #303030;
+  --iconBGColor: #3f3f3f;
 }
 
 body {
@@ -61,7 +61,7 @@ a:hover {
 
 .browseRow{
   display: flex;
-  overflow: scroll;
+  overflow-x: scroll;
   align-items: center;
 
   margin-bottom: 80px;
@@ -122,11 +122,11 @@ a:hover {
 
   width: 70px;
   height: 70px;
-  border: 2px solid white;
+  border: 2px solid #ffffff;
   border-radius: 20px;
 
   text-decoration: none;
-  background-color: var(--headerBGColor);
+  background-color: var(--iconBGColor);
   color: var(--textColor);
   font-size: 30px;
   font-weight: bold;
@@ -163,11 +163,12 @@ a:hover {
 .allImage{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  overflow-x: scroll;
   align-items: center;
-  overflow: auto;
 
+  height: 300px;
   width: 80%;
+  border: 2px solid black;
 }
 
 .imageBox{

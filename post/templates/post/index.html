@@ -26,11 +26,13 @@
 
 				<!--images-->
 				<div class="allImage">
+					<div class="glue"></div>
 					{% for image in allImages %}
 						<div class="imageBox">
 							<img class="image" src="{{image.photo.url}}">
 						</div>
 					{% endfor %}
+					<div class="glue"></div>
 				</div>
 
 				<!--info-->

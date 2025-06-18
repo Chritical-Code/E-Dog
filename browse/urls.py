@@ -8,6 +8,6 @@ from . import views
 #url
 urlpatterns = [
     path("", views.index, name="index"),
-    path("search/<str:searchStr>/", views.search, name="search"),
+    path("search/<str:searchStr>", views.search, name="search"),
     path("searchbar/", views.searchBar, name="searchBar"),
 ]
