@@ -15,5 +15,5 @@ urlpatterns = [
     path("account/", views.showAccount, name="showAccount"),
     path("pinned/", views.pinned, name="pinned"),
     path("fetchTogglePin/", views.fetchTogglePin, name="fetchTogglePin"),
-    path("<str:reqName>", views.index, name="index"),
+    path("<str:reqName>/", views.index, name="index"),
 ]

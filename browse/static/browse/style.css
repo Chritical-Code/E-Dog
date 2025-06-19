@@ -4,6 +4,10 @@
   --headerBGColor: #252525;
   --contentBGColor: #ffffff;
   --iconBGColor: #3f3f3f;
+
+  /*image dimensions*/
+  --imgWidth: 400px;
+  --imgHeight: 225px;
 }
 
 body {
@@ -32,6 +36,7 @@ a {
 
 h2 {
   margin: 0px;
+  font-size: 24px;
 }
 
 a:hover {
@@ -44,19 +49,18 @@ a:hover {
 
 
 
-
-/*Post related CSS*/
-.row{
-  display: flex;
-  justify-content: center;
-  overflow: auto;
+/*Post/Image related CSS*/
+.image{
+  width: var(--imgWidth);
+  height: var(--imgHeight);
 }
 
-.row2{
+.imageBox{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .browseRow{
@@ -65,21 +69,37 @@ a:hover {
   align-items: center;
 
   margin-bottom: 80px;
-  height: 250px;
+  height: calc(var(--imgHeight) + 80px);
   width: 90%;
 }
 
-.divPost{
+.imageRow{
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  align-items: center;
+
+  width: 90%;
+  height: calc(var(--imgHeight) + 30px);
+}
+
+.postBox {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
 
-  width: 300px;
-  height: 90%;
+  width: 400px;
   margin-left: 10px;
   margin-right: 10px;
   border: 2px solid var(--headerBGColor);
+}
+
+.column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .details {
@@ -90,16 +110,11 @@ a:hover {
   width: 90%;
   margin: 20px;
 }
-.details h2 {
-  color: black;
-  font-size: 24px;
-}
 .details p {
   margin-bottom: 20px;
   text-align: center;
   max-width: 500px;
 }
-
 
 
 /*Header CSS*/
@@ -175,37 +190,6 @@ a:hover {
 .footer a:hover{
   color: rgb(78, 78, 78);
 }
-
-
-/*image*/
-.allImage{
-  display: flex;
-  flex-direction: row;
-  overflow-x: scroll;
-  align-items: center;
-
-  height: 200px;
-  width: 90%;
-}
-
-.imageBox{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.image{
-  width: 300px;
-  height: 169px;
-}
-
-.browsePostImage{
-  width: 300px;
-  height: 169px;
-}
-
 
 /*searchbar*/
 .searchbarForm{

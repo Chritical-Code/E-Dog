@@ -20,7 +20,7 @@
 
 			<!--delete pics section-->
 			<h3>Pictures:</h3>
-			<div id="photoDiv" class="allImage">
+			<div id="photoDiv" class="browseImage">
 				<div class="glue"></div>
 				<!--images-->
 				{% for image in allImages %}
@@ -56,7 +56,7 @@
 
             <!--edit post form-->
 			<h3>Add Details</h3>
-            <form id="editPostFormID" class="row2" action="/post/doedit/" method="post" enctype="multipart/form-data">
+            <form id="editPostFormID" class="column" action="/post/doedit/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{editPostForm}}
                 <input type="hidden" name="postPK" value="{{postPK}}"/>
@@ -64,7 +64,7 @@
             </form>
 
 			<!--delete buttons (on a form)-->
-			<form id="deleteButtonsForm" class="row2" action="/post/dodelete/" method="post" enctype="multipart/form-data">
+			<form id="deleteButtonsForm" class="column" action="/post/dodelete/" method="post" enctype="multipart/form-data">
 				{% csrf_token %}
 				<button id="deleteButton" class="buttonLink" type="button" onclick="clickDelete()"><p>Delete</p></button>
 				<button id="cancelButton" class="buttonLink" type="button" onclick="clickCancel()"><p>Cancel</p></button>

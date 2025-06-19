@@ -1,7 +1,7 @@
 Todo
 
 +make it look better :)
--better profile page
+-rework pinned page, probably integrate fullposts somehow
 
 
 Later

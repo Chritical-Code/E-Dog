@@ -1,9 +1,10 @@
+<div class="glue"></div>
 {% if fullPosts %}
 	{% for fullPost in fullPosts %}
-        <a class="divPost" href="/post/{{fullPost.post.id}}/">
+        <a class="postBox" href="/post/{{fullPost.post.id}}/">
 			<!--images-->
 			<div class="imageBox">
-			    <img class="browsePostImage" src="{{fullPost.image.photo.url}}">
+			    <img class="image" src="{{fullPost.image.photo.url}}">
 			</div>
 
 			<!--info-->
@@ -17,3 +18,4 @@
 {% else %}
 	<p>No posts are available.</p>
 {% endif %}
+<div class="glue"></div>
