@@ -1,17 +1,17 @@
 <div class="glue"></div>
-{% if fullPosts %}
-	{% for fullPost in fullPosts %}
-        <a class="postBox" href="/post/{{fullPost.post.id}}/">
+{% if postBoxes %}
+	{% for postBox in postBoxes %}
+        <a class="postBox" href="{{postBox.url}}/">
 			<!--images-->
 			<div class="imageBox">
-			    <img class="image" src="{{fullPost.image.photo.url}}">
+			    <img class="image" src="{{postBox.thumbnail.photo.url}}">
 			</div>
 
 			<!--info-->
     		<div class="glue"></div>
-			<p>{{fullPost.post.breeds}}</p>
+			<p>{{postBox.post.breeds}}</p>
 			<div class="glue"></div>
-			<p>${{fullPost.post.price}}</p>
+			<p>${{postBox.post.price}}</p>
 			<div class="glue"></div>
 		</a>
 	{% endfor %}

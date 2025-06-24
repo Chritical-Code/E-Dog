@@ -1,7 +1,11 @@
 Todo
 
 +make it look better :)
--rework pinned page, probably integrate fullposts somehow
+-rework pinned page
+-same with manage page
+-edit page too
+-pin button and trash button
+-replace margin bottom on browse row with a glue-like div but he just adds margin himself
 
 
 Later
@@ -11,3 +15,8 @@ Later
 +handle improper image sizes
 +deal with empty pic folders
 +get your css in order
++why is searchform named "form"?
++just get one image instead of all where applicable, if possible
++set image number limit
++change post loading to fetch instead
++consider moving pinned to posts app

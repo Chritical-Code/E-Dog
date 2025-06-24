@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from .forms import LoginForm, SignupForm
 from post.models import Post, Image
 from.models import Pinned
+from post.postBox import PostBox
 
 
 #views
@@ -19,28 +20,22 @@ def index(request, reqName):
     userKey = user.pk
     userPosts = Post.objects.filter(user=userKey)
 
-    #create a class to combine posts and images
-    class PostAndImage:
-        def __init__(self, inPost, inImage):
-            self.post = inPost
-            self.image = inImage
-    
-    #combine posts with their respective images         #Process:
-    fullPosts = []                                      #declare empty list
-    for post in userPosts:                              #for each post:
-        allImages = Image.objects.filter(post=post.pk)  #get all images
-        
-        if allImages:                                   #use first image, if exists
-            image = allImages[0]
-        else:
-            image = None
+    #combine posts with their respective images
+    postBoxes = []
+    for post in userPosts:
+        postImages = Image.objects.filter(post=post.pk)[:1]
 
-        aPost = PostAndImage(post, image)               #create a temporary post object
-        fullPosts.append(aPost)                         #append post object to list
+        if postImages:
+            thumbnail = postImages[0]
+        else:
+            thumbnail = None
+
+        aPost = PostBox(thumbnail, post, f"/post/{post.pk}")
+        postBoxes.append(aPost)
 
     context = {
         "user": user,
-        "fullPosts": fullPosts,
+        "postBoxes": postBoxes,
     }
 
     return render(request, "user/index.html", context)
@@ -150,27 +145,21 @@ def pinned(request):
             pinnedPosts.append(Post.objects.filter(pk=int(post))[0])
         
 
-    #create a class to combine posts and images
-    class PostAndImage:
-        def __init__(self, inPost, inImage):
-            self.post = inPost
-            self.image = inImage
+    #combine posts with their respective images
+    postBoxes = []
+    for post in pinnedPosts:
+        postImages = Image.objects.filter(post=post.pk)[:1]
 
-    #combine posts with their respective images         #Process:
-    fullPosts = []                                      #declare empty list
-    for post in pinnedPosts:                            #for each post:
-        allImages = Image.objects.filter(post=post.pk)  #get all images
-        
-        if allImages:                                   #use first image, if exists
-            image = allImages[0]
+        if postImages:
+            thumbnail = postImages[0]
         else:
-            image = None
+            thumbnail = None
 
-        aPost = PostAndImage(post, image)               #create a temporary post object
-        fullPosts.append(aPost)                         #append post object to list
+        aPost = PostBox(thumbnail, post, f"/post/{post.pk}")
+        postBoxes.append(aPost)
 
     context = {
-        "fullPinnedPosts": fullPosts,
+        "postBoxes": postBoxes,
     }
     return render(request, "user/pinned.html", context)
 

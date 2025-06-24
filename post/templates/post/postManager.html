@@ -31,23 +31,8 @@
 			<p>These are your posts:</p>
 
 			<!--show editable posts-->
-			<div class="row2">
-				{% if fullPosts %}
-					{% for fullPost in fullPosts %}
-        				<a class="divPost" href="/post/edit/{{fullPost.post.id}}/">
-							<!--images-->
-			    			<div class="imageBox">
-			        			<img class="browsePostImage" src="{{fullPost.image.photo.url}}">
-							</div>
-
-							<!--info-->
-							<p>{{fullPost.post.breeds}}</p>
-							<p>${{fullPost.post.price}}</p>
-						</a>
-					{% endfor %}
-				{% else %}
-					<p>No posts are available.</p>
-				{% endif %}
+			<div class="browseRow">
+				{% include "post/postBoxes.html" %}
 			</div>
 			
 			<!--footer-->

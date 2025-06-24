@@ -23,29 +23,9 @@
 			<h2>Pinned Posts</h2>
 			
             <!--pinned posts-->
-            <div class="row2">
-                {% if fullPinnedPosts %}
-	                {% for fullPinnedPost in fullPinnedPosts %}
-                        <!--reorder button-->
-
-                        <!--full post-->
-                        <a class="divPost" href="/post/{{fullPinnedPost.post.id}}/">
-			                <!--images-->
-			                <div class="imageBox">
-			                    <img class="browsePostImage" src="{{fullPinnedPost.image.photo.url}}">
-			                </div>
-
-			                <!--info-->
-			                <p>{{fullPinnedPost.post.breeds}}</p>
-			                <p>${{fullPinnedPost.post.price}}</p>
-		                </a>
-
-                        <!--remove button-->
-	                {% endfor %}
-                {% else %}
-	                <p>No posts are available.</p>
-                {% endif %}
-            </div>
+            <div class="browseRow">
+				{% include "post/postBoxes.html" %}
+			</div>
 			
 			<!--footer-->
 			{% include "browse/footer.html" %}

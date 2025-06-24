@@ -6,6 +6,7 @@ from .forms import CreatePost, UploadImage
 from django.contrib.auth.decorators import login_required
 import datetime, decimal, os, random, json
 from django.http import JsonResponse
+from post.postBox import PostBox
 
 #views
 #index
@@ -27,27 +28,21 @@ def postManager(request):
     #get all of this user's posts
     posts = Post.objects.filter(user=request.user.pk)
 
-    #create a class to combine posts and images
-    class PostAndImage:
-        def __init__(self, inPost, inImage):
-            self.post = inPost
-            self.image = inImage
+    #combine posts with their respective images
+    postBoxes = []
+    for post in posts:
+        postImages = Image.objects.filter(post=post.pk)[:1]
 
-    #combine posts with their respective images         #Process:
-    fullPosts = []                                      #declare empty list
-    for post in posts:                                  #for each post:
-        allImages = Image.objects.filter(post=post.pk)  #get all images
-        
-        if allImages:                                   #use first image, if exists
-            image = allImages[0]
+        if postImages:
+            thumbnail = postImages[0]
         else:
-            image = None
+            thumbnail = None
 
-        aPost = PostAndImage(post, image)               #create a temporary post object
-        fullPosts.append(aPost)                         #append post object to list
+        aPost = PostBox(thumbnail, post, f"/post/edit/{post.pk}")
+        postBoxes.append(aPost)
 
     context = {
-        "fullPosts": fullPosts,
+        "postBoxes": postBoxes,
     }
 
     return render(request, "post/postManager.html", context)
