@@ -19,7 +19,6 @@
 			<h2>Edit Post</h2>
 
 			<!--delete pics section-->
-			<h3>Pictures:</h3>
 			<div id="photoDiv" class="browseRow">
 				<div class="glue"></div>
 				<!--images-->
@@ -30,9 +29,11 @@
 						</div>
 
 						<!--delete button-->
-						<button id="button{{image.pk}}" class="buttonLink" type="button" onclick="deleteImage('{{image.pk}}')">
-							<p>🗑️</p>
-						</button>
+						<div class="row">
+							<button id="button{{image.pk}}" class="deleteImageButton" type="button" onclick="deleteImage('{{image.pk}}')">
+								<p>🗑️</p>
+							</button>
+						</div>
 					</div>
 				{% endfor %}
 				<div class="glue"></div>
@@ -40,7 +41,7 @@
 			<script src="{% static 'post/deletePic.js' %}"></script>
 
 			<!--add image form-->
-			<h3>Add Image</h3>
+			<div class="v-gap-S"></div>
             <div id="addImage" class="">
 				<!--select file button-->
 				<input id="selectFile" type="file" accept="image/*"/>
@@ -55,8 +56,8 @@
             </div>
 
             <!--edit post form-->
-			<h3>Add Details</h3>
-            <form id="editPostFormID" class="column" action="/post/doedit/" method="post" enctype="multipart/form-data">
+			<div class="v-gap-S"></div>
+            <form id="editPostFormID" class="editDetails" action="/post/doedit/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{editPostForm}}
                 <input type="hidden" name="postPK" value="{{postPK}}"/>

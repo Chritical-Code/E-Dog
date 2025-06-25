@@ -22,17 +22,15 @@
 			<!--page title-->
 			<h2>Manage Posts</h2>
 
-            <!--create post button-->
-			<div class="row">
-				<button class="buttonLink" onclick="window.location.href='/post/tryCreatePost/';"><p>New Post</p></button>
-			</div>
-			
-			<!--page body-->
-			<p>These are your posts:</p>
-
 			<!--show editable posts-->
 			<div class="browseRow">
 				{% include "post/postBoxes.html" %}
+			</div>
+			<div class="v-gap-S"></div>
+
+			<!--create post button-->
+			<div class="row">
+				<button class="buttonLink" onclick="window.location.href='/post/tryCreatePost/';"><p>New Post</p></button>
 			</div>
 			
 			<!--footer-->

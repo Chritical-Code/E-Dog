@@ -1,16 +1,8 @@
 Todo
 
-+make it look better :)
--rework pinned page
--same with manage page
--edit page too
--pin button and trash button
--replace margin bottom on browse row with a glue-like div but he just adds margin himself
-
 
 Later
 +Rework browse posts sections
-+better everything page
 +add icons to header
 +handle improper image sizes
 +deal with empty pic folders
@@ -20,3 +12,4 @@ Later
 +set image number limit
 +change post loading to fetch instead
 +consider moving pinned to posts app
++fix breedless posts size difference (through formating or a " " breed)

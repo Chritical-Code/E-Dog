@@ -5,6 +5,14 @@
   --contentBGColor: #ffffff;
   --iconBGColor: #3f3f3f;
 
+  /*input*/
+  --buttonColor: #dbdbdb;
+  --buttonHover: #c0c0c0;
+  --buttonPressed: #a8a8a8;
+  --buttonTextColor: black;
+  --buttonBorder: 1px solid black;
+  --buttonRadius: 5px;
+
   /*image dimensions*/
   --imgWidth: 400px;
   --imgHeight: 225px;
@@ -33,18 +41,28 @@ a {
   color:rgb(0, 0, 0);
   margin: 0px;
 }
+a:hover {
+  color: rgb(78, 78, 78);
+}
 
 h2 {
   margin: 0px;
   font-size: 24px;
 }
 
-a:hover {
-  color: rgb(78, 78, 78);
+h3 {
+  margin: 0px;
 }
 
 .glue {
   flex-grow: 1;
+}
+
+.v-gap-L {
+  margin-bottom: 80px;
+}
+.v-gap-S {
+  margin-bottom: 20px;
 }
 
 
@@ -68,7 +86,6 @@ a:hover {
   overflow-x: scroll;
   align-items: center;
 
-  margin-bottom: 80px;
   height: calc(var(--imgHeight) + 80px);
   width: 90%;
 }
@@ -102,6 +119,13 @@ a:hover {
   align-items: center;
 }
 
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .details {
   display: flex;
   flex-direction: column;
@@ -114,6 +138,18 @@ a:hover {
   margin-bottom: 20px;
   text-align: center;
   max-width: 500px;
+}
+
+.editDetails{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 90%;
+}
+.editDetails label{
+  margin-top: 10px;
+  text-align: center;
 }
 
 
@@ -207,4 +243,88 @@ a:hover {
   margin-left: 10px;
   width: 40%;
   height: 20px;
+}
+
+
+/*input*/
+button {
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+
+  margin: 4px;
+}
+button:hover {
+  background-color: var(--buttonHover);
+}
+button:active {
+  background-color: var(--buttonPressed);
+}
+
+select {
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+  
+  margin: 4px;
+}
+select:hover {
+  background-color: var(--buttonHover);
+}
+select:active {
+  background-color: var(--buttonPressed);
+}
+
+input[type="button"] {
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+
+  margin: 4px;
+}
+input[type="button"]:hover {
+  background-color: var(--buttonHover);
+}
+input[type="button"]:active {
+  background-color: var(--buttonPressed);
+}
+
+input[type="submit"] {
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+
+  margin: 4px;
+}
+input[type="submit"]:hover {
+  background-color: var(--buttonHover);
+}
+input[type="submit"]:active {
+  background-color: var(--buttonPressed);
+}
+
+input[type="file"]::file-selector-button {
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+}
+input[type="file"]::file-selector-button:hover {
+  background-color: var(--buttonHover);
+}
+input[type="file"]::file-selector-button:active {
+  background-color: var(--buttonPressed);
+}
+
+.deleteImageButton {
+  width: 60px;
 }
