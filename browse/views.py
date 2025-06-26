@@ -10,7 +10,7 @@ from post.postBox import PostBox
 #index
 def index(request):
     #createa a form
-    form = SearchForm()
+    searchForm = SearchForm()
 
     #retrieve recent 10 posts
     latestPosts = Post.objects.order_by("-dateCreated")[:10]
@@ -31,7 +31,7 @@ def index(request):
     #attach variables to context
     context = {
         "postBoxes": postBoxes,
-        "form": form,
+        "searchForm": searchForm,
         "username": request.user.username,
     }
     
@@ -43,7 +43,7 @@ def index(request):
 #search
 def search(request, searchStr):
     #createa a form
-    form = SearchForm()
+    searchForm = SearchForm()
     
     #retrieve all posts related to search
     relatedPosts = Post.objects.filter(breeds__icontains=searchStr)[:10]
@@ -64,7 +64,7 @@ def search(request, searchStr):
     context = {
         "postBoxes": postBoxes,
         "searchStr": searchStr,
-        "form" : form,
+        "searchForm" : SearchForm,
     }
 
     return render(request, "browse/search.html", context)

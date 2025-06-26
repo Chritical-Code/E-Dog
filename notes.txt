@@ -1,6 +1,5 @@
 Todo
 
-+why is searchform named "form"?
 
 
 Later
@@ -13,3 +12,10 @@ Later
 +consider moving pinned to posts app
 +consider moving commons (header, footer, css, etc) to its own app
 +wrong password error message
+
+
+
+
+Before publishing
++clean up test database
++ensure secure
