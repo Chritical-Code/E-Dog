@@ -23,12 +23,23 @@
 			<h2>Account</h2>
 			
 			<!--page body-->
-			<a href="/user/{{user.username}}"><p>Username: {{user.username}}</p></a>
-			<p>Name: {{user.first_name}} {{user.last_name}}</p>
-			<p>Email: {{user.email}}</p>
+			<div class="myAccount">
+				<h3>Username</h3>
+				<a href="/user/{{user.username}}"><p>{{user.username}}</p></a>
 
+				<h3>Name</h3>
+				{% if user.first_name %}
+					<p>{{user.first_name}} {{user.last_name}}</p>
+				{% else %}
+					<p>N/A</p>
+				{% endif %}
+
+				<h3>Email</h3>
+				<p>{{user.email}}</p>
+			</div>
 
 			<!--sign out button-->
+			<div class="v-gap-L"></div>
 			<div class="row">
 				<button class="buttonLink" onclick="window.location.href='/user/logout/';"><p>Log Out</p></button>
 			</div>

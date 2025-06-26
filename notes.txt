@@ -1,15 +1,15 @@
 Todo
 
++why is searchform named "form"?
+
 
 Later
-+Rework browse posts sections
++Rework browse posts sections, adding fetch
 +add icons to header
 +handle improper image sizes
 +deal with empty pic folders
 +get your css in order
-+why is searchform named "form"?
-+just get one image instead of all where applicable, if possible
 +set image number limit
-+change post loading to fetch instead
 +consider moving pinned to posts app
-+fix breedless posts size difference (through formating or a " " breed)
++consider moving commons (header, footer, css, etc) to its own app
++wrong password error message

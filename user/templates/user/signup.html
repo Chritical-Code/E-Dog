@@ -21,12 +21,9 @@
 			
 			<!--page title-->
 			<h2>Sign Up</h2>
-			
-			<!--page body-->
-			<p>Sign Up Here:</p>
 
             <!--signup form-->
-            <form id="signupFormID" class="row2" action="/user/dosignup/" method="post">
+            <form id="signupFormID" class="loginForm" action="/user/dosignup/" method="post">
                 {% csrf_token %}
                 {{signupForm}}
 				<input type="submit" value="Submit">

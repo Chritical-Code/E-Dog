@@ -47,7 +47,7 @@ a:hover {
 
 h2 {
   margin: 0px;
-  font-size: 24px;
+  font-size: 28px;
 }
 
 h3 {
@@ -327,4 +327,34 @@ input[type="file"]::file-selector-button:active {
 
 .deleteImageButton {
   width: 60px;
+}
+
+
+/*login*/
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm label {
+  margin-top: 20px;
+}
+
+.loginForm input[type="submit"] {
+  margin-top: 20px;
+}
+
+
+/*my account*/
+.myAccount{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.myAccount h3{
+  margin-top: 20px;
 }

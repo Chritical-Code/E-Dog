@@ -22,7 +22,7 @@
 			<h2>Login</h2>
 
             <!--login form-->
-            <form id="loginFormID" action="/user/dologin/" method="post">
+            <form id="loginFormID" class="loginForm" action="/user/dologin/" method="post">
                 {% csrf_token %}
                 {{loginForm}}
 				<input type="hidden" name="next" value="{{ request.GET.next }}"/>
@@ -30,7 +30,7 @@
             </form>
 
 			<!--sign up button-->
-			<p></p>
+			<div class="v-gap-L"></div>
 			<div class="row">
 				<button class="buttonLink" onclick="window.location.href='/user/signup/';"><p>Sign Up</p></button>
 			</div>

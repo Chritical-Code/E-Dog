@@ -34,27 +34,27 @@
 				
 				<!--details-->
 				<div class="details">
-					<h2>User</h2>
+					<h3>User</h3>
 					<a href="/user/{{post.user.username}}"><p>{{post.user}}</p></a>
 
-					<h2>Price</h2>
+					<h3>Price</h3>
 					<p>${{post.price}}</p>
 					
-					<h2>Breeds</h2>
+					<h3>Breeds</h3>
 					<p>{{post.breeds}}</p>
 					
-					<h2>Born</h2>
+					<h3>Born</h3>
 					<p>{{post.age}}</p>
 
-					<h2>Description</h2>
+					<h3>Description</h3>
 					<p>{{post.description}}</p>
 
-					<h2>Date Posted</h2>
+					<h3>Date Posted</h3>
 					<p>{{post.dateCreated}}</p>
 				</div>
 				
 			{% else %}
-				<p>no post</p>
+				<p>No Posts</p>
 			{% endif %}
 
 			<!--pin button-->

@@ -9,7 +9,11 @@
 
 			<!--info-->
     		<div class="glue"></div>
-			<p>{{postBox.post.breeds}}</p>
+			{% if postBox.post.breeds%}
+				<p>{{postBox.post.breeds}}</p>
+			{% else %}
+				<p>N/A</p>
+			{% endif %}
 			<div class="glue"></div>
 			<p>${{postBox.post.price}}</p>
 			<div class="glue"></div>
