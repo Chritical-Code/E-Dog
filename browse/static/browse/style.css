@@ -1,9 +1,10 @@
 /*Main global CSS*/
-:root {
+:root{
   --textColor: #ffffff;
-  --headerBGColor: #252525;
+  --headerBGColor: #c74d4d;
+  --iconBGColor: #9e3f3f;
   --contentBGColor: #ffffff;
-  --iconBGColor: #3f3f3f;
+  --bodyBGColor: #252525;
 
   /*input*/
   --buttonColor: #dbdbdb;
@@ -18,11 +19,14 @@
   --imgHeight: 225px;
 }
 
-body {
-  background-color: var(--headerBGColor);
+body{
+  background-color: var(--bodyBGColor);
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
 }
 
-.content {
+.content{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,36 +36,36 @@ body {
   background-color: var(--contentBGColor);
 }
 
-p {
+p{
   margin: 0px;
 }
 
-a {
+a{
   text-decoration: none;
   color:rgb(0, 0, 0);
   margin: 0px;
 }
-a:hover {
+a:hover{
   color: rgb(78, 78, 78);
 }
 
-h2 {
+h2{
   margin: 0px;
   font-size: 28px;
 }
 
-h3 {
+h3{
   margin: 0px;
 }
 
-.glue {
+.glue{
   flex-grow: 1;
 }
 
-.v-gap-L {
+.v-gap-L{
   margin-bottom: 80px;
 }
-.v-gap-S {
+.v-gap-S{
   margin-bottom: 20px;
 }
 
@@ -87,7 +91,7 @@ h3 {
   align-items: center;
 
   height: calc(var(--imgHeight) + 80px);
-  width: 90%;
+  width: 95%;
 }
 
 .imageRow{
@@ -96,11 +100,11 @@ h3 {
   overflow-x: scroll;
   align-items: center;
 
-  width: 90%;
+  width: 95%;
   height: calc(var(--imgHeight) + 30px);
 }
 
-.postBox {
+.postBox{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -109,7 +113,7 @@ h3 {
   width: 400px;
   margin-left: 10px;
   margin-right: 10px;
-  border: 2px solid var(--headerBGColor);
+  border: 2px solid black;
 }
 
 .column{
@@ -126,15 +130,15 @@ h3 {
   align-items: center;
 }
 
-.details {
+.details{
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  width: 90%;
+  width: 95%;
   margin: 20px;
 }
-.details p {
+.details p{
   margin-bottom: 20px;
   text-align: center;
   max-width: 500px;
@@ -145,7 +149,7 @@ h3 {
   flex-direction: column;
   align-items: center;
 
-  width: 90%;
+  width: 95%;
 }
 .editDetails label{
   margin-top: 10px;
@@ -177,13 +181,13 @@ h3 {
   color: var(--textColor);
 }
 
-.headerButtonDiv {
+.headerButtonDiv{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.headerLink {
+.headerLink{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -200,8 +204,145 @@ h3 {
   font-size: 30px;
   font-weight: bold;
 }
-.headerLink:hover {
+.headerLink:hover{
   color: rgb(180, 180, 180);
+}
+.headerLink img{
+  width: 40px;
+  height: 40px;
+}
+
+
+/*searchbar*/
+.searchbarForm{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  height: 50px;
+  margin-bottom: 40px;
+}
+
+.searchbarForm input{
+  margin-left: 10px;
+  width: 40%;
+  height: 20px;
+}
+
+
+/*input*/
+button{
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+
+  margin: 4px;
+}
+button:hover{
+  background-color: var(--buttonHover);
+}
+button:active{
+  background-color: var(--buttonPressed);
+}
+
+select{
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+  
+  margin: 4px;
+}
+select:hover{
+  background-color: var(--buttonHover);
+}
+select:active{
+  background-color: var(--buttonPressed);
+}
+
+input[type="button"]{
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+
+  margin: 4px;
+}
+input[type="button"]:hover{
+  background-color: var(--buttonHover);
+}
+input[type="button"]:active{
+  background-color: var(--buttonPressed);
+}
+
+input[type="submit"]{
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+
+  margin: 4px;
+}
+input[type="submit"]:hover{
+  background-color: var(--buttonHover);
+}
+input[type="submit"]:active{
+  background-color: var(--buttonPressed);
+}
+
+input[type="file"]::file-selector-button{
+  height: 40px;
+  background-color: var(--buttonColor);
+  color: var(--buttonTextColor);
+  border: var(--buttonBorder);
+  border-radius: var(--buttonRadius);
+}
+input[type="file"]::file-selector-button:hover{
+  background-color: var(--buttonHover);
+}
+input[type="file"]::file-selector-button:active{
+  background-color: var(--buttonPressed);
+}
+
+.deleteImageButton{
+  width: 60px;
+}
+
+
+/*login*/
+.loginForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginForm label{
+  margin-top: 20px;
+}
+
+.loginForm input[type="submit"] {
+  margin-top: 20px;
+}
+
+
+/*my account*/
+.myAccount{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.myAccount h3{
+  margin-top: 20px;
 }
 
 
@@ -227,134 +368,31 @@ h3 {
   color: rgb(78, 78, 78);
 }
 
-/*searchbar*/
-.searchbarForm{
+
+/*about page*/
+.aboutSection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutIcon{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
 
-  width: 100%;
+  margin: 8px;
   height: 50px;
-  margin-bottom: 40px;
+  width: 90%;
+
+  white-space: pre;
 }
 
-.searchbarForm input {
-  margin-left: 10px;
-  width: 40%;
-  height: 20px;
-}
-
-
-/*input*/
-button {
+.aboutIcon img{
+  width: 40px;
   height: 40px;
-  background-color: var(--buttonColor);
-  color: var(--buttonTextColor);
-  border: var(--buttonBorder);
-  border-radius: var(--buttonRadius);
-
-  margin: 4px;
-}
-button:hover {
-  background-color: var(--buttonHover);
-}
-button:active {
-  background-color: var(--buttonPressed);
-}
-
-select {
-  height: 40px;
-  background-color: var(--buttonColor);
-  color: var(--buttonTextColor);
-  border: var(--buttonBorder);
-  border-radius: var(--buttonRadius);
-  
-  margin: 4px;
-}
-select:hover {
-  background-color: var(--buttonHover);
-}
-select:active {
-  background-color: var(--buttonPressed);
-}
-
-input[type="button"] {
-  height: 40px;
-  background-color: var(--buttonColor);
-  color: var(--buttonTextColor);
-  border: var(--buttonBorder);
-  border-radius: var(--buttonRadius);
-
-  margin: 4px;
-}
-input[type="button"]:hover {
-  background-color: var(--buttonHover);
-}
-input[type="button"]:active {
-  background-color: var(--buttonPressed);
-}
-
-input[type="submit"] {
-  height: 40px;
-  background-color: var(--buttonColor);
-  color: var(--buttonTextColor);
-  border: var(--buttonBorder);
-  border-radius: var(--buttonRadius);
-
-  margin: 4px;
-}
-input[type="submit"]:hover {
-  background-color: var(--buttonHover);
-}
-input[type="submit"]:active {
-  background-color: var(--buttonPressed);
-}
-
-input[type="file"]::file-selector-button {
-  height: 40px;
-  background-color: var(--buttonColor);
-  color: var(--buttonTextColor);
-  border: var(--buttonBorder);
-  border-radius: var(--buttonRadius);
-}
-input[type="file"]::file-selector-button:hover {
-  background-color: var(--buttonHover);
-}
-input[type="file"]::file-selector-button:active {
-  background-color: var(--buttonPressed);
-}
-
-.deleteImageButton {
-  width: 60px;
-}
-
-
-/*login*/
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.loginForm label {
-  margin-top: 20px;
-}
-
-.loginForm input[type="submit"] {
-  margin-top: 20px;
-}
-
-
-/*my account*/
-.myAccount{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.myAccount h3{
-  margin-top: 20px;
+  background-color: var(--iconBGColor);
+  margin-right: 8px;
 }

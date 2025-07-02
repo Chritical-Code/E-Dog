@@ -1,17 +1,30 @@
 Todo
++notifications and messages
+-
+
++functioning homepage categories
+-
 
 
+Easy
++wrong password error message
++set image number limit
++show newest posts first in manage
 
-Later
-+Rework browse posts sections, adding fetch
-+add icons to header
-+handle improper image sizes
+
+Medium
 +deal with empty pic folders
 +get your css in order
-+set image number limit
 +consider moving pinned to posts app
++make breeds mandatory or something
++consider replacing "pin" with an icon
+
+
+Hard
++Rework browse posts sections, adding fetch
++test run on an actual server
++handle improper image sizes
 +consider moving commons (header, footer, css, etc) to its own app
-+wrong password error message
 
 
 

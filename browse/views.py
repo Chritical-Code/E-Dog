@@ -75,3 +75,9 @@ def search(request, searchStr):
 def searchBar(request):
     searcho = request.POST.get("searcho")
     return redirect("/browse/search/" + searcho + "/")
+
+
+#about
+def about(request):
+    context = {}
+    return render(request, "browse/about.html", context)

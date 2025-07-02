@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+	<head>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'browse/style.css' %}">
+
+		<meta charset="utf-8" />
+		<title>eDog - Browse</title>
+	</head>
+
+	<body>
+		<div class="content">
+			<!--header-->
+			{% include "browse/header.html" %}
+            
+            <div class="glue"></div>
+
+            <!--About-->
+            <div class="aboutSection">
+				<h3>Icon Credits</h3>
+
+                <div class="aboutIcon">
+                    <img src="/media/icons/account.png" alt="Account">
+					<a target="_blank" href="https://icons8.com/icon/2oRq7VXjDba7/account">Account</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+                </div>
+
+                <div class="aboutIcon">
+					<img src="/media/icons/edit.png" alt="Edit">
+                    <a target="_blank" href="https://icons8.com/icon/114092/edit">Edit</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+                </div>
+
+				<div class="aboutIcon">
+					<img src="/media/icons/pin.png" alt="Pin">
+					<a target="_blank" href="https://icons8.com/icon/476/pin">Pin</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+				</div>
+
+				<div class="aboutIcon">
+					<img src="/media/icons/notification.png" alt="Notification">
+					<a target="_blank" href="https://icons8.com/icon/eMfeVHKyTnkc/notification">Notification</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+				</div>
+            </div>
+
+            <div class="glue"></div>
+
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>
