@@ -12,25 +12,26 @@ def index(request):
     #createa a form
     searchForm = SearchForm()
 
-    #retrieve recent 10 posts
+    #retrieve recent posts
     latestPosts = Post.objects.order_by("-dateCreated")[:10]
 
-    #combine posts with their respective images
-    postBoxes = []
-    for post in latestPosts:
-        postImages = Image.objects.filter(post=post.pk)[:1]
+    #retrieve featured posts
+    featuredPosts = Post.objects.order_by("-dateCreated")[:10]
 
-        if postImages:
-            thumbnail = postImages[0]
-        else:
-            thumbnail = None
+    #retrieve random posts
+    randomPosts = Post.objects.order_by("-dateCreated")[:10]
 
-        aPost = PostBox(thumbnail, post, f"/post/{post.pk}")
-        postBoxes.append(aPost)
+    #postboxify posts
+    linkType = "/post/"
+    latestPostBoxes = PostBox.easyCombine(latestPosts, linkType)
+    featuredPostBoxes = PostBox.easyCombine(featuredPosts, linkType)
+    randomPostBoxes = PostBox.easyCombine(randomPosts, linkType)
 
     #attach variables to context
     context = {
-        "postBoxes": postBoxes,
+        "featuredPostBoxes": featuredPostBoxes,
+        "randomPostBoxes": randomPostBoxes,
+        "latestPostBoxes": latestPostBoxes,
         "searchForm": searchForm,
         "username": request.user.username,
     }
@@ -48,18 +49,8 @@ def search(request, searchStr):
     #retrieve all posts related to search
     relatedPosts = Post.objects.filter(breeds__icontains=searchStr)[:10]
     
-    #combine posts with their respective images
-    postBoxes = []
-    for post in relatedPosts:
-        postImages = Image.objects.filter(post=post.pk)[:1]
-
-        if postImages:
-            thumbnail = postImages[0]
-        else:
-            thumbnail = None
-
-        aPost = PostBox(thumbnail, post, f"/post/{post.pk}")
-        postBoxes.append(aPost)
+    #postBoxify posts
+    postBoxes = PostBox.easyCombine(relatedPosts, "/post/")
 
     context = {
         "postBoxes": postBoxes,

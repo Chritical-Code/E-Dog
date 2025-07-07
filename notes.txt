@@ -3,7 +3,12 @@ Todo
 -
 
 +functioning homepage categories
--
+-easy PostBox combiner function
+-featured
+-random
+-recent
+
++sidequest: replace all postbox makers with easy postbox maker
 
 
 Easy
@@ -25,6 +30,7 @@ Hard
 +test run on an actual server
 +handle improper image sizes
 +consider moving commons (header, footer, css, etc) to its own app
++location
 
 
 

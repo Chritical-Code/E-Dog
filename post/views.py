@@ -27,19 +27,9 @@ def index(request, postID):
 def postManager(request):
     #get all of this user's posts
     posts = Post.objects.filter(user=request.user.pk)
-
-    #combine posts with their respective images
-    postBoxes = []
-    for post in posts:
-        postImages = Image.objects.filter(post=post.pk)[:1]
-
-        if postImages:
-            thumbnail = postImages[0]
-        else:
-            thumbnail = None
-
-        aPost = PostBox(thumbnail, post, f"/post/edit/{post.pk}")
-        postBoxes.append(aPost)
+    
+    #postBoxify posts
+    postBoxes = PostBox.easyCombine(posts, "/post/edit/")
 
     context = {
         "postBoxes": postBoxes,

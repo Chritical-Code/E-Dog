@@ -17,24 +17,24 @@
 			<!--search bar-->
 			{% include "browse/searchbar.html" %}
 
-			<!--posts-->
+			<!--featured posts-->
 			<h2>Featured</h2>
 			<div class="browseRow">
-				{% include "post/postBoxes.html" %}
+				{% include "post/postBoxes.html" with postBoxes=featuredPostBoxes %}
 			</div>
 			<div class="v-gap-L"></div>
 
-			<!--posts again-->
+			<!--random posts-->
+			<h2>Random</h2>
+			<div class="browseRow">
+				{% include "post/postBoxes.html" with postBoxes=randomPostBoxes %}
+			</div>
+			<div class="v-gap-L"></div>
+
+			<!--recent posts-->
 			<h2>Recent</h2>
 			<div class="browseRow">
-				{% include "post/postBoxes.html" %}
-			</div>
-			<div class="v-gap-L"></div>
-
-			<!--posts again-->
-			<h2>Nearby</h2>
-			<div class="browseRow">
-				{% include "post/postBoxes.html" %}
+				{% include "post/postBoxes.html" with postBoxes=latestPostBoxes %}
 			</div>
 			<div class="v-gap-L"></div>
 

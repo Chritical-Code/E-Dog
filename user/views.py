@@ -20,18 +20,8 @@ def index(request, reqName):
     userKey = user.pk
     userPosts = Post.objects.filter(user=userKey)
 
-    #combine posts with their respective images
-    postBoxes = []
-    for post in userPosts:
-        postImages = Image.objects.filter(post=post.pk)[:1]
-
-        if postImages:
-            thumbnail = postImages[0]
-        else:
-            thumbnail = None
-
-        aPost = PostBox(thumbnail, post, f"/post/{post.pk}")
-        postBoxes.append(aPost)
+    #postBoxify posts
+    postBoxes = PostBox.easyCombine(userPosts, "/post/")
 
     context = {
         "user": user,
@@ -141,22 +131,12 @@ def pinned(request):
 
     pinnedPosts = list()
     for post in pinned.pinnedPosts:
-        if len(Post.objects.filter(pk=int(post))) > 0:
-            pinnedPosts.append(Post.objects.filter(pk=int(post))[0])
+        filteredPosts = Post.objects.filter(pk=int(post))
+        if len(filteredPosts) > 0:
+            pinnedPosts.append(filteredPosts[0])
         
-
-    #combine posts with their respective images
-    postBoxes = []
-    for post in pinnedPosts:
-        postImages = Image.objects.filter(post=post.pk)[:1]
-
-        if postImages:
-            thumbnail = postImages[0]
-        else:
-            thumbnail = None
-
-        aPost = PostBox(thumbnail, post, f"/post/{post.pk}")
-        postBoxes.append(aPost)
+    #postBoxify posts
+    postBoxes = PostBox.easyCombine(pinnedPosts, "/post/")
 
     context = {
         "postBoxes": postBoxes,
