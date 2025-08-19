@@ -1,20 +1,25 @@
 Todo
-+notifications and messages
--
+Make presentable for demo:
++redo example data
+-trusted sources
 
 +functioning homepage categories
--easy PostBox combiner function
 -featured
 -random
 -recent
 
-+sidequest: replace all postbox makers with easy postbox maker
+
++notifications and messages
+-
 
 
 Easy
++delete post button confirmation resizes page
++big trash button on edit post
 +wrong password error message
 +set image number limit
 +show newest posts first in manage
++hover color changes: nav, borders, posts
 
 
 Medium
@@ -27,10 +32,10 @@ Medium
 
 Hard
 +Rework browse posts sections, adding fetch
-+test run on an actual server
 +handle improper image sizes
 +consider moving commons (header, footer, css, etc) to its own app
 +location
++create image cropper
 
 
 
