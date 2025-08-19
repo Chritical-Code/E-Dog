@@ -1,8 +1,5 @@
 Todo
 Make presentable for demo:
-+redo example data
--trusted sources
-
 +functioning homepage categories
 -featured
 -random
