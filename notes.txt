@@ -1,10 +1,5 @@
 Todo
-Make presentable for demo:
-+functioning homepage categories
--featured
--random
--recent
-
++fix trash button on edit post-add pic
 
 +notifications and messages
 -
@@ -12,7 +7,6 @@ Make presentable for demo:
 
 Easy
 +delete post button confirmation resizes page
-+big trash button on edit post
 +wrong password error message
 +set image number limit
 +show newest posts first in manage

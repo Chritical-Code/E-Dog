@@ -18,9 +18,9 @@
 			{% include "browse/searchbar.html" %}
 
 			<!--featured posts-->
-			<h2>Featured</h2>
+			<h2>Recent</h2>
 			<div class="browseRow">
-				{% include "post/postBoxes.html" with postBoxes=featuredPostBoxes %}
+				{% include "post/postBoxes.html" with postBoxes=recentPostBoxes %}
 			</div>
 			<div class="v-gap-L"></div>
 
@@ -32,9 +32,9 @@
 			<div class="v-gap-L"></div>
 
 			<!--recent posts-->
-			<h2>Recent</h2>
+			<h2>Youngest</h2>
 			<div class="browseRow">
-				{% include "post/postBoxes.html" with postBoxes=latestPostBoxes %}
+				{% include "post/postBoxes.html" with postBoxes=youngestPostBoxes %}
 			</div>
 			<div class="v-gap-L"></div>
 

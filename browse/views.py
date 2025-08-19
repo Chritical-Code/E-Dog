@@ -13,25 +13,25 @@ def index(request):
     searchForm = SearchForm()
 
     #retrieve recent posts
-    latestPosts = Post.objects.order_by("-dateCreated")[:10]
-
-    #retrieve featured posts
-    featuredPosts = Post.objects.order_by("-dateCreated")[:10]
+    recentPosts = Post.objects.order_by("-dateCreated")[:10]
 
     #retrieve random posts
-    randomPosts = Post.objects.order_by("-dateCreated")[:10]
+    randomPosts = Post.objects.order_by("?")[:10]
+
+    #retrieve youngest dog posts
+    youngestPosts = Post.objects.order_by("-age")[:10]
 
     #postboxify posts
     linkType = "/post/"
-    latestPostBoxes = PostBox.easyCombine(latestPosts, linkType)
-    featuredPostBoxes = PostBox.easyCombine(featuredPosts, linkType)
+    recentPostBoxes = PostBox.easyCombine(recentPosts, linkType)
     randomPostBoxes = PostBox.easyCombine(randomPosts, linkType)
+    youngestPostBoxes = PostBox.easyCombine(youngestPosts, linkType)
 
     #attach variables to context
     context = {
-        "featuredPostBoxes": featuredPostBoxes,
+        "recentPostBoxes": recentPostBoxes,
         "randomPostBoxes": randomPostBoxes,
-        "latestPostBoxes": latestPostBoxes,
+        "youngestPostBoxes": youngestPostBoxes,
         "searchForm": searchForm,
         "username": request.user.username,
     }

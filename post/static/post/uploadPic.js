@@ -81,7 +81,7 @@ function appendImage(inJson){
 
     //delete button
     const deleteButton = document.createElement("button");
-    deleteButton.classList.add("buttonLink");
+    deleteButton.classList.add("deleteImageButton");
     deleteButton.id = "button" + inJson.imgPK;
     deleteButton.type = "button";
     deleteButton.setAttribute("onclick", "deleteImage(" + inJson.imgPK + ")");
