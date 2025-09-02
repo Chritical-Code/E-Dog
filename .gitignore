@@ -4,3 +4,6 @@ settings.py
 #ignore database and media?
 db.sqlite3
 media/
+
+#ignore pycache
+__pycache__/
