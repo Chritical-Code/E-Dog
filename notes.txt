@@ -1,4 +1,8 @@
 Todo
++IMPORTANT:
+-to git re-add settings.py, use environment variables for secret, use local_settings.py
+-consider re-adding db and media, limitedly
+
 +fix trash button on edit post-add pic
 
 +notifications and messages
