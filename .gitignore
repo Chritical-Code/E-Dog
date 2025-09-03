@@ -1,7 +1,7 @@
 #ignore settings.py
-settings.py
+eDog/settings.py
 
-#ignore database and media?
+#ignore database and media
 db.sqlite3
 media/
 
