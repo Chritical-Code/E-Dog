@@ -79,13 +79,18 @@ function appendImage(inJson){
     img.src = inJson.imgUrl;
     imageBox.appendChild(img);
 
+    //delete button row
+    const deleteRow = document.createElement("div");
+    deleteRow.classList.add("row");
+    imgAndButton.appendChild(deleteRow);
+
     //delete button
     const deleteButton = document.createElement("button");
     deleteButton.classList.add("deleteImageButton");
     deleteButton.id = "button" + inJson.imgPK;
     deleteButton.type = "button";
     deleteButton.setAttribute("onclick", "deleteImage(" + inJson.imgPK + ")");
-    imgAndButton.appendChild(deleteButton);
+    deleteRow.appendChild(deleteButton);
 
     //delete button text
     const deleteButtonText = document.createElement("p");
