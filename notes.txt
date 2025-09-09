@@ -1,16 +1,12 @@
 Todo
-+fix trash button on edit post-add pic
-
-+notifications and messages
--
 
 
 Easy
-+delete post button confirmation resizes page
 +wrong password error message
 +set image number limit
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
++rename gaps, maybe gap-vs gap-hm, or something better
 
 
 Medium
@@ -18,22 +14,21 @@ Medium
 +deal with empty pic folders
 +get your css in order
 +consider moving pinned to posts app
-+make breeds mandatory or something
-+consider replacing "pin" with an icon
++consider replacing "pin" button with an icon
 +recent posts only goes by date, consider adding time too
 +only show posts with images
 
 
 Hard
++add notifications and messages page
 +Rework browse posts sections, adding fetch
 +handle improper image sizes
 +consider moving commons (header, footer, css, etc) to its own app
-+location
++add location functionality
 +create image cropper
 
 
 
 
 Before publishing
-+clean up test database
 +ensure secure

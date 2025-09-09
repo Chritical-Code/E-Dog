@@ -65,7 +65,7 @@
             </form>
 
 			<!--delete buttons (on a form)-->
-			<form id="deleteButtonsForm" class="column" action="/post/dodelete/" method="post" enctype="multipart/form-data">
+			<form id="deleteButtonsForm" class="row" action="/post/dodelete/" method="post" enctype="multipart/form-data">
 				{% csrf_token %}
 				<button id="deleteButton" class="buttonLink" type="button" onclick="clickDelete()"><p>Delete</p></button>
 				<button id="cancelButton" class="buttonLink" type="button" onclick="clickCancel()"><p>Cancel</p></button>
