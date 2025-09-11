@@ -57,7 +57,7 @@
 
             <!--edit post form-->
 			<div class="v-gap-S"></div>
-            <form id="editPostFormID" class="editDetails" action="/post/doedit/" method="post" enctype="multipart/form-data">
+            <form id="editPostFormID" class="editDetails" action="/post/edit/{{postPK}}/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{editPostForm}}
                 <input type="hidden" name="postPK" value="{{postPK}}"/>

@@ -396,3 +396,14 @@ input[type="file"]::file-selector-button:active{
   background-color: var(--iconBGColor);
   margin-right: 8px;
 }
+
+
+/*form validation*/
+ul{
+  margin: 0px;
+}
+
+li{
+  margin: 0px;
+  color: red;
+}

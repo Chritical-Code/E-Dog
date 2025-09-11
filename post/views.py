@@ -1,4 +1,3 @@
-#Post views
 #import
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Post, Image
@@ -62,38 +61,40 @@ def tryCreatePost(request):
 #edit post
 @login_required
 def editPost(request, postID):
-    #get post
-    post = get_object_or_404(Post, pk=postID)
+    if request.method == "GET":
+        #get post
+        post = get_object_or_404(Post, pk=postID)
 
-    #check if wrong user
-    if not(request.user.pk == post.user.pk):
-        print("wrong user")
-        return redirect("/browse/")
+        #check if wrong user
+        if not(request.user.pk == post.user.pk):
+            print("wrong user")
+            return redirect("/browse/")
 
-    #form
-    forminitial = {
-        "breeds": post.breeds,
-        "price": post.price,
-        "age": post.age,
-        "description": post.description,
-    }
-    editPostForm = CreatePost(initial=forminitial)
-    uploadImageForm = UploadImage()
+        #form
+        forminitial = {
+            "breeds": post.breeds,
+            "price": post.price,
+            "age": post.age,
+            "description": post.description,
+        }
+        editPostForm = CreatePost(initial=forminitial)
+        uploadImageForm = UploadImage()
 
-    #get images
-    allImages = Image.objects.filter(post=post.pk)
-    
-    context = {
-        "editPostForm": editPostForm,
-        "postPK": post.pk,
-        "uploadImageForm": uploadImageForm,
-        "allImages": allImages,
-    }
+        #get images
+        allImages = Image.objects.filter(post=post.pk)
+        
+        context = {
+            "editPostForm": editPostForm,
+            "postPK": post.pk,
+            "uploadImageForm": uploadImageForm,
+            "allImages": allImages,
+        }
 
-    return render(request, "post/editPost.html", context)
+        return render(request, "post/editPost.html", context)
+    elif request.method == "POST":
+        return doEditPost(request)
 
 #do edit post
-@login_required
 def doEditPost(request):
     #get post
     postPK = request.POST["postPK"]
@@ -103,16 +104,28 @@ def doEditPost(request):
     if not(request.user.pk == post.user.pk):
         print("wrong user")
         return redirect("/browse/")
+    
+    #prepare forms and images
+    editPostForm = CreatePost(request.POST)
+    uploadImageForm = UploadImage()
+    allImages = Image.objects.filter(post=post.pk)
+
+    #check if form has errors
+    if not editPostForm.is_valid():
+        context = {
+            "editPostForm": editPostForm,
+            "postPK": post.pk,
+            "uploadImageForm": uploadImageForm,
+            "allImages": allImages,
+        }
+
+        return render(request, "post/editPost.html", context)
 
     #get data
-    breeds = request.POST["breeds"]
-    price = request.POST["price"]
-    description = request.POST["description"]
-    #create datetime from input
-    year = int(request.POST["age_year"])
-    month = int(request.POST["age_month"])
-    day = int(request.POST["age_day"])
-    age = datetime.date(year=year, month=month, day=day)
+    breeds = editPostForm.cleaned_data["breeds"]
+    price = editPostForm.cleaned_data["price"]
+    description = editPostForm.cleaned_data["description"]
+    age = editPostForm.cleaned_data["age"]
 
     #update post
     post.breeds = breeds
@@ -121,7 +134,7 @@ def doEditPost(request):
     post.age = age
     post.save()
 
-    return redirect("/post/manage/")
+    return redirect("postManager")
 
 #do delete post
 @login_required

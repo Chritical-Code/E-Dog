@@ -1,8 +1,10 @@
 Todo
-
++form validation
+-add custom error messages
+-ensure everything works as intended
+-switch and combine the rest
 
 Easy
-+wrong password error message
 +set image number limit
 +show newest posts first in manage
 +hover color changes: nav, borders, posts

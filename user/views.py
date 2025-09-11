@@ -68,7 +68,8 @@ def doLogin(request):
 
     else:
         # Return an 'invalid login' error message
-        return redirect(destination)
+        #return redirect(destination)
+        return render(request, "user/login.html")
     
 #do Logout
 def doLogout(request):
