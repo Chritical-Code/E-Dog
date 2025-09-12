@@ -181,21 +181,26 @@ def fetchEditDeletePic(request):
 
 #upload image
 def fetchUploadImage(request):
-    #tofix: maybe check if login is right or is right account?
-
     #get post
     postPK = request.POST["postPK"]
     post = Post.objects.filter(pk=postPK)[0]
 
-    #upload image to server
+    #check if wrong user
+    if not(request.user.pk == post.user.pk):
+        print("wrong user - image upload")
+        return
+
+    #attempt upload image to server
     photoPK = funcUploadImage(request, post)
 
-    #get image we just uploaded
-    image = False
-    if(photoPK):
-        image = Image.objects.filter(pk=photoPK)[0]
+    #if image failed, cancel
+    if(photoPK == False):
+        return
 
-    #misc
+    #otherwise get image from db
+    image = Image.objects.filter(pk=photoPK)[0]
+
+    #send image to user
     context = {
         "imgUrl": image.photo.url,
         "imgPK": image.pk,
@@ -208,7 +213,11 @@ def funcUploadImage(request, post):
     img = Image()
     img.title = "img_title"
     img.post = post
+
+    #send to image form
     imgForm = UploadImage(request.POST, request.FILES, instance=img)
+
+    #save if valid
     if imgForm.is_valid():
         imgForm.save()
         return img.pk
