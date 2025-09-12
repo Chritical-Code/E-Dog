@@ -1,7 +1,5 @@
 Todo
 +form validation
--add custom error messages
--ensure everything works as intended
 -switch and combine the rest
 
 Easy
