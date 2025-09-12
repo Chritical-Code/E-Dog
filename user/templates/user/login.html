@@ -22,7 +22,7 @@
 			<h2>Login</h2>
 
             <!--login form-->
-            <form id="loginFormID" class="loginForm" action="/user/dologin/" method="post">
+            <form id="loginFormID" class="loginForm" action="/user/login/" method="post">
                 {% csrf_token %}
                 {{loginForm}}
 				<input type="hidden" name="next" value="{{ request.GET.next }}"/>

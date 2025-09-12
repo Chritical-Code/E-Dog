@@ -4,16 +4,16 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from django.http import JsonResponse
 
-from .forms import LoginForm, SignupForm
-from post.models import Post, Image
+from .forms import SignupForm
+from post.models import Post
 from.models import Pinned
 from post.postBox import PostBox
 
 
 #views
-#index
 def index(request, reqName):
     #retrieve all of this user's posts
     user = get_object_or_404(User, username=reqName)
@@ -30,7 +30,6 @@ def index(request, reqName):
 
     return render(request, "user/index.html", context)
 
-#show account
 @login_required
 def showAccount(request):
     context = {
@@ -39,83 +38,69 @@ def showAccount(request):
 
     return render(request, "user/myAccount.html", context)
 
-#login
 def loginPage(request):
-    loginForm = LoginForm()
+    if(request.method == "GET"):
+        loginForm = AuthenticationForm()
 
-    context = {
-        "loginForm": loginForm
-    }
+        context = {
+            "loginForm": loginForm
+        }
 
-    return render(request, "user/login.html", context)
+        return render(request, "user/login.html", context)
+    elif request.method == "POST":
+        return doLogin(request)
 
-#do Login
 def doLogin(request):
-    username = request.POST["username"]
-    password = request.POST["password"]
-    destination = request.POST.get('next')
+    #get form
+    loginForm = AuthenticationForm(request, request.POST)
 
-    #fix destination if its empty
-    if(destination == ""):
-        destination = "/user/account/"
-
-    user = authenticate(request, username=username, password=password)
-
-    if user is not None:
+    #check if valid
+    if loginForm.is_valid():
+        #login
+        user = loginForm.get_user()
         login(request, user)
-        # Redirect to a success page.
-        return redirect(destination)
+        
+        #set destination
+        destination = request.POST.get('next')
+        if destination == "":
+                destination = "/user/account/"
 
+        return redirect(destination)
     else:
-        # Return an 'invalid login' error message
-        #return redirect(destination)
-        return render(request, "user/login.html")
-    
-#do Logout
+        context = {
+            "loginForm": loginForm
+        }
+        return render(request, "user/login.html", context)
+
 def doLogout(request):
     logout(request)
-    # Redirect to a success page.
     return redirect("/user/login/")
 
-#sign up
 def signUp(request):
-    signupForm = SignupForm()
-    
-    context = {
-        "signupForm": signupForm,
-    }
-    return render(request, "user/signup.html", context)
+    if request.method == "GET":
+        signupForm = UserCreationForm()
+        
+        context = {
+            "signupForm": signupForm,
+        }
+        return render(request, "user/signup.html", context)
+    elif request.method == "POST":
+        doSignUp(request)
 
-#do signup
 def doSignUp(request):
-    #Get data from form
-    username = request.POST["username"]
-    password = request.POST["password"]
-    email = request.POST["email"]
-    firstname = request.POST["firstname"]
-    lastname = request.POST["lastname"]
+    signupForm = UserCreationForm(request.POST)
 
-    #verify user name and email are available
-    makeAccount = False
-    if(not User.objects.filter(username=username)):
-        if(not User.objects.filter(email=email)):
-            makeAccount = True
-
-    #if allowed, make the account and sign in
-    if(makeAccount):
-        user = User.objects.create_user(username, email, password)
-        user.first_name = firstname
-        user.last_name = lastname
-        user.save()
-
-        userLogin = authenticate(request, username=username, password=password)
-        if userLogin is not None:
-            login(request, userLogin)
+    if signupForm.is_valid():
+        user = signupForm.save()
+        login(request, user)
     
-    #redirect to account page
-    return redirect("/user/account/")
+        return redirect("/user/account/")
+    else:
+        context = {
+            "signupForm": signupForm,
+        }
+        return render(request, "user/signup.html", context)
 
-#pinned posts
 @login_required
 def pinned(request):
     #retrieve all of user's pinned posts
