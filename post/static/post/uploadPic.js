@@ -56,6 +56,12 @@ async function upload(inData){
 
 //append added image to div
 function appendImage(inJson){
+    //cancel if error
+    if("error" in inJson){
+        alert(inJson.error);
+        return;
+    }
+    
     //get photo div
     const photoDiv = document.getElementById("photoDiv");
 

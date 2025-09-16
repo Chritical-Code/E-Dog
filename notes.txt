@@ -1,7 +1,9 @@
 Todo
 
 Easy
-+set image number limit
++ensure image is safe to upload
++set post number limit
++set image size limit
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
 +rename gaps, maybe gap-vs gap-hm, or something better
@@ -24,6 +26,7 @@ Hard
 +consider moving commons (header, footer, css, etc) to its own app
 +add location functionality
 +create image cropper
++accounts require email confirmation
 
 
 

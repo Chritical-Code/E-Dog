@@ -185,19 +185,30 @@ def fetchUploadImage(request):
     postPK = request.POST["postPK"]
     post = Post.objects.filter(pk=postPK)[0]
 
-    #check if wrong user
+    #cancel if wrong user
     if not(request.user.pk == post.user.pk):
         print("wrong user - image upload")
         return
+    
+    #cancel if post has too many images
+    allImages = Image.objects.filter(post=post.pk)
+    counter = 0
+    if len(allImages) >= 10:
+        context = {
+            "error": "This post has the maximum allowed pictures (10)."
+        }
+        return JsonResponse(context, safe=True)
+
+    #ensure image is safe to upload
 
     #attempt upload image to server
     photoPK = funcUploadImage(request, post)
 
-    #if image failed, cancel
+    #cancel if image upload failed
     if(photoPK == False):
         return
 
-    #otherwise get image from db
+    #get image from db
     image = Image.objects.filter(pk=photoPK)[0]
 
     #send image to user
