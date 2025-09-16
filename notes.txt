@@ -1,9 +1,4 @@
 Todo
-+form validation
--switch to UserCreationForm, or extend them
- .signup
- .why does it have errors already?
- .probably gotta extend and add email, name
 
 Easy
 +set image number limit

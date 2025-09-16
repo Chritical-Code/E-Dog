@@ -78,7 +78,8 @@ def doLogout(request):
 
 def signUp(request):
     if request.method == "GET":
-        signupForm = UserCreationForm()
+        print("get")
+        signupForm = SignupForm()
         
         context = {
             "signupForm": signupForm,
@@ -88,7 +89,7 @@ def signUp(request):
         doSignUp(request)
 
 def doSignUp(request):
-    signupForm = UserCreationForm(request.POST)
+    signupForm = SignupForm(request.POST)
 
     if signupForm.is_valid():
         user = signupForm.save()
