@@ -10,7 +10,6 @@ urlpatterns = [
     path("login/", views.loginPage, name="login"),
     path("logout/", views.doLogout, name="dologout"),
     path("signup/", views.signUp, name="signup"),
-    path("dosignup/", views.doSignUp, name="dosignup"),
     path("account/", views.showAccount, name="showAccount"),
     path("pinned/", views.pinned, name="pinned"),
     path("fetchTogglePin/", views.fetchTogglePin, name="fetchTogglePin"),
