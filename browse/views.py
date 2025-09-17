@@ -13,13 +13,13 @@ def index(request):
     searchForm = SearchForm()
 
     #retrieve recent posts
-    recentPosts = Post.objects.order_by("-dateCreated")[:10]
+    recentPosts = Post.objects.filter(image__isnull=False).distinct().exclude(breeds="").order_by("-dateCreated")[:10]
 
     #retrieve random posts
-    randomPosts = Post.objects.order_by("?")[:10]
+    randomPosts = Post.objects.filter(image__isnull=False).distinct().exclude(breeds="").order_by("?")[:10]
 
     #retrieve youngest dog posts
-    youngestPosts = Post.objects.order_by("-age")[:10]
+    youngestPosts = Post.objects.filter(image__isnull=False).distinct().exclude(breeds="").order_by("-age")[:10]
 
     #postboxify posts
     linkType = "/post/"

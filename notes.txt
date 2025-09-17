@@ -1,5 +1,4 @@
 Todo
-
 +ensure image is safe to upload
 
 Easy
@@ -16,7 +15,7 @@ Medium
 +consider moving pinned to posts app
 +consider replacing "pin" button with an icon
 +recent posts only goes by date, consider adding time too
-+only show posts with images
+
 
 
 Hard
