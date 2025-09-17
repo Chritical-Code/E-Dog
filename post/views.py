@@ -39,8 +39,14 @@ def postManager(request):
 #try create post
 @login_required
 def tryCreatePost(request):
-    #first check each of user's post for a pre-existing blank one
+    #get users posts
     userPosts = Post.objects.filter(user=request.user)
+    
+    #cancel if user has max posts already
+    if len(userPosts) >= 10:
+        return redirect("postManager")
+    
+    #check each of user's post for a pre-existing unfinished one
     for blankPost in userPosts:
         if blankPost.breeds == "":
             return redirect("/post/edit/" + str(blankPost.pk) + "/")
@@ -161,7 +167,7 @@ def doDeletePost(request):
     return redirect("/post/manage")
 
 #fetch
-#edit post delete image
+#delete's an image
 def fetchEditDeletePic(request):
     #parse sent body data
     body_unicode = request.body.decode('utf-8')
@@ -179,7 +185,7 @@ def fetchEditDeletePic(request):
     context = {}
     return JsonResponse(context, safe=True)
 
-#upload image
+#pre-process for uploading images
 def fetchUploadImage(request):
     #get post
     postPK = request.POST["postPK"]
@@ -192,7 +198,6 @@ def fetchUploadImage(request):
     
     #cancel if post has too many images
     allImages = Image.objects.filter(post=post.pk)
-    counter = 0
     if len(allImages) >= 10:
         context = {
             "error": "This post has the maximum allowed pictures (10)."
@@ -218,7 +223,7 @@ def fetchUploadImage(request):
     }
     return JsonResponse(context, safe=True)
 
-#function upload image
+#actual image upload
 def funcUploadImage(request, post):
     #create image and add data
     img = Image()
@@ -234,3 +239,14 @@ def funcUploadImage(request, post):
         return img.pk
     else:
         return False
+    
+#check if we're maxxed out on posts
+def fetchMaxPostsCheck(request):
+    context = {}
+    
+    #cancel if too many posts
+    allPosts = Post.objects.filter(user_id=request.user.pk)
+    if len(allPosts) >= 10:
+        context["error"] = "You have the maximum allowed posts (10)."
+    
+    return JsonResponse(context, safe=True)

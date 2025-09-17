@@ -12,6 +12,7 @@ urlpatterns = [
     path("edit/<int:postID>/", views.editPost, name="editPost"),
     path("fetchEditDeletePic/", views.fetchEditDeletePic, name="fetchEditDeletePic"),
     path("fetchUploadImage/", views.fetchUploadImage, name="fetchUploadImage"),
+    path("fetchMaxPostsCheck/", views.fetchMaxPostsCheck, name="fetchMaxPostsCheck"),
     path("dodelete/", views.doDeletePost, name="doDeletePost"),
     path("<int:postID>/", views.index, name="index"),
 ]

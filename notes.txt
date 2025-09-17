@@ -1,8 +1,8 @@
 Todo
 
-Easy
 +ensure image is safe to upload
-+set post number limit
+
+Easy
 +set image size limit
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
