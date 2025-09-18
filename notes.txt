@@ -1,14 +1,13 @@
 Todo
-+ensure image is safe to upload
 
 Easy
-+set image size limit
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
 +rename gaps, maybe gap-vs gap-hm, or something better
 
 
 Medium
++set file size limits on nginx backups
 +rework git ignore
 +deal with empty pic folders
 +get your css in order
@@ -17,18 +16,14 @@ Medium
 +recent posts only goes by date, consider adding time too
 
 
-
 Hard
 +add notifications and messages page
 +Rework browse posts sections, adding fetch
-+handle improper image sizes
++make a cropper.js and handle improper image sizes
 +consider moving commons (header, footer, css, etc) to its own app
 +add location functionality
-+create image cropper
 +accounts require email confirmation
 
 
-
-
-Before publishing
-+ensure secure
+Security
++follow web laws

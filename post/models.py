@@ -1,10 +1,7 @@
-#Post models
-
 #import
 from django.db import models
-
 from django.contrib.auth.models import User
-
+from django.core.exceptions import ValidationError
 
 
 #post
@@ -31,9 +28,13 @@ class Post(models.Model):
         #else false
         return False
     
+#validate image size
+def validate_image_size(image):
+    if image.size > 8 * 1024 * 1024:
+        raise ValidationError("Image file too large (8mb)")
 
 #image
 class Image(models.Model):
-    photo = models.ImageField(upload_to="pics/%Y/%m/%d/")
+    photo = models.ImageField(upload_to="pics/%Y/%m/%d/", validators=[validate_image_size])
     title = models.CharField(max_length=20)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

@@ -199,19 +199,16 @@ def fetchUploadImage(request):
     #cancel if post has too many images
     allImages = Image.objects.filter(post=post.pk)
     if len(allImages) >= 10:
-        context = {
-            "error": "This post has the maximum allowed pictures (10)."
-        }
+        context["error"] = "This post has the maximum allowed pictures (10)."
         return JsonResponse(context, safe=True)
-
-    #ensure image is safe to upload
 
     #attempt upload image to server
     photoPK = funcUploadImage(request, post)
 
     #cancel if image upload failed
     if(photoPK == False):
-        return
+        context["error"] = "Image upload failed."
+        return JsonResponse(context, safe=True)
 
     #get image from db
     image = Image.objects.filter(pk=photoPK)[0]
