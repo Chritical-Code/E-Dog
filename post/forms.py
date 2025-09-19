@@ -18,7 +18,7 @@ class CreatePost(forms.Form):
     validYears.sort(reverse=True)
 
     #form entries
-    breeds = forms.CharField(label="Breeds:", max_length=5)
+    breeds = forms.CharField(label="Breeds:", max_length=30)
     price = forms.DecimalField(label="Price:", decimal_places=2, max_digits=9, error_messages={"required": "Invalid price."})
     age = forms.DateField(label="Date Born:", widget=forms.SelectDateWidget(years=validYears))
     description = forms.CharField(label="Description:", max_length=1000, widget=forms.Textarea)
