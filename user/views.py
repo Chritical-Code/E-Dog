@@ -78,15 +78,14 @@ def doLogout(request):
 
 def signUp(request):
     if request.method == "GET":
-        print("get")
         signupForm = SignupForm()
         
         context = {
             "signupForm": signupForm,
         }
         return render(request, "user/signup.html", context)
-    elif request.method == "POST":
-        doSignUp(request)
+    else:
+        return doSignUp(request)
 
 def doSignUp(request):
     signupForm = SignupForm(request.POST)
@@ -94,7 +93,6 @@ def doSignUp(request):
     if signupForm.is_valid():
         user = signupForm.save()
         login(request, user)
-    
         return redirect("/user/account/")
     else:
         context = {

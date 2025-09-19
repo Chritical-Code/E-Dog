@@ -16,7 +16,7 @@
 			<h2>Sign Up</h2>
 
             <!--signup form-->
-            <form id="signupFormID" class="loginForm" action="/user/dosignup/" method="post">
+            <form id="signupFormID" class="loginForm" action="/user/signup/" method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{signupForm}}
 				<input type="submit" value="Submit">
