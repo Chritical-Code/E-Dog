@@ -1,25 +1,35 @@
-#Browse views
-
 #import
 from django.shortcuts import render, redirect
 from post.models import Post, Image
 from .forms import SearchForm
 from post.postBox import PostBox
+from django.db.models import Q
 
 #views
-#index
 def index(request):
     #createa a form
     searchForm = SearchForm()
 
     #retrieve recent posts
-    recentPosts = Post.objects.filter(image__isnull=False).distinct().exclude(breeds="").order_by("-dateCreated")[:10]
+    recentPosts = (
+        Post.objects.filter(image__isnull=False).distinct() #has images
+        .filter(Q(approved__isnull=False) | Q(user=request.user.id)).distinct() #approved or by this user
+        .exclude(breeds="").order_by("-dateCreated")[:10] #has breed, newest first, stop at 10
+    )
 
     #retrieve random posts
-    randomPosts = Post.objects.filter(image__isnull=False).distinct().exclude(breeds="").order_by("?")[:10]
+    randomPosts = (
+        Post.objects.filter(image__isnull=False).distinct() #has images
+        .filter(Q(approved__isnull=False) | Q(user=request.user.id)).distinct() #approved or by this user
+        .exclude(breeds="").order_by("?")[:10] #has breed, random order, stop at 10
+    )
 
     #retrieve youngest dog posts
-    youngestPosts = Post.objects.filter(image__isnull=False).distinct().exclude(breeds="").order_by("-age")[:10]
+    youngestPosts = (
+        Post.objects.filter(image__isnull=False).distinct() #has images
+        .filter(Q(approved__isnull=False) | Q(user=request.user.id)).distinct() #approved or by this user
+        .exclude(breeds="").order_by("-age")[:10] #has breed, youngest first, stop at 10
+    )
 
     #postboxify posts
     linkType = "/post/"
@@ -39,9 +49,6 @@ def index(request):
     #return render
     return render(request, "browse/index.html", context)
 
-
-
-#search
 def search(request, searchStr):
     #createa a form
     searchForm = SearchForm()
@@ -58,17 +65,12 @@ def search(request, searchStr):
         "searchForm" : SearchForm,
     }
 
-    return render(request, "browse/search.html", context)
+    return render(request, "browse/search.html", context)  
 
-    
-
-#searchbar
 def searchBar(request):
     searcho = request.POST.get("searcho")
     return redirect("/browse/search/" + searcho + "/")
 
-
-#about
 def about(request):
     context = {}
     return render(request, "browse/about.html", context)

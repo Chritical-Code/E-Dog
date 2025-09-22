@@ -27,13 +27,18 @@ class Post(models.Model):
             
         #else false
         return False
-    
+
+#approved
+class Approved(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    approved = models.BooleanField()
+
+#image related
 #validate image size
 def validate_image_size(image):
     if image.size > 8 * 1024 * 1024:
         raise ValidationError("Image file too large (8mb)")
 
-#image
 class Image(models.Model):
     photo = models.ImageField(upload_to="pics/%Y/%m/%d/", validators=[validate_image_size])
     title = models.CharField(max_length=20)

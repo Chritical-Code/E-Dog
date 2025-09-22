@@ -1,4 +1,16 @@
 Todo
++post approval
+-new table, foreign key to its post, boolean
+-only show approved posts, unless they are the user's
+-approval alerts
+-easy approval system
+
++about sections
+-mention this is a demo site
+-mention post approval system
+
++bug fix- add unique tag to all uploaded pictures to avoid duplicate complications
++consider changing login submit button to read log in
 
 Easy
 +show newest posts first in manage
