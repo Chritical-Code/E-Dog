@@ -1,7 +1,5 @@
 Todo
 +post approval
--new table, foreign key to its post, boolean
--only show approved posts, unless they are the user's
 -approval alerts
 -easy approval system
 

@@ -1,6 +1,6 @@
 #import
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Post, Image
+from .models import Post, Image, Approved
 from .forms import CreatePost, UploadImage
 from django.contrib.auth.decorators import login_required
 import datetime, decimal, os, random, json
@@ -140,6 +140,9 @@ def doEditPost(request):
     post.age = age
     post.save()
 
+    #unapprove post
+    unApprovePost(post.pk)
+
     return redirect("postManager")
 
 #do delete post
@@ -165,6 +168,12 @@ def doDeletePost(request):
 
 
     return redirect("/post/manage")
+
+#remove post from approval list
+def unApprovePost(postPK):
+    approvals = Approved.objects.filter(post=postPK)
+    for approval in approvals:
+        approval.delete()
 
 #fetch
 #delete's an image
@@ -233,6 +242,7 @@ def funcUploadImage(request, post):
     #save if valid
     if imgForm.is_valid():
         imgForm.save()
+        unApprovePost(post.pk)
         return img.pk
     else:
         return False
