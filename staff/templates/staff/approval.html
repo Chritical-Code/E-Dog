@@ -12,13 +12,13 @@
 			<!--header-->
 			{% include "browse/header.html" %}
             
-            <div class="glue"></div>
+			<h2>Approval</h2>
+			<div class="v-gap-L"></div>
 
-            <div class="row">
-				<p>Approval</p>
-            </div>
-
-            <div class="glue"></div>
+			<h3>Unapproved Posts</h3>
+			<div class="browseRow">
+				{% include "post/postBoxes.html" with postBoxes=unapprovedPostBoxes %}
+			</div>
 
 			<!--footer-->
 			{% include "browse/footer.html" %}

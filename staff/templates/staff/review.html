@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+	<head>
+		{% load static %}
+		{% include "browse/head.html" %}
+		<title>eDog - Post</title>
+	</head>
+
+	<body>
+		<div class="content">
+			<!--header-->
+			{% include "browse/header.html" %}
+			
+			<!--post info-->
+			{% if post %}
+				<!--images-->
+				<div class="imageRow">
+					<div class="glue"></div>
+					{% for image in allImages %}
+						<div class="imageBox">
+							<img class="image" src="{{image.photo.url}}">
+						</div>
+					{% endfor %}
+					<div class="glue"></div>
+				</div>
+				
+				<!--details-->
+				<div class="details">
+					<h3>User</h3>
+					<a href="/user/{{post.user.username}}"><p>{{post.user}}</p></a>
+
+					<h3>Price</h3>
+					<p>${{post.price}}</p>
+					
+					<h3>Breeds</h3>
+					<p>{{post.breeds}}</p>
+					
+					<h3>Born</h3>
+					<p>{{post.age}}</p>
+
+					<h3>Description</h3>
+					<p>{{post.description}}</p>
+
+					<h3>Date Posted</h3>
+					<p>{{post.dateCreated}}</p>
+				</div>
+				
+			{% else %}
+				<p>No Posts</p>
+			{% endif %}
+
+			<!--footer-->
+			{% include "browse/footer.html" %}
+		</div>
+	</body>
+
+</html>

@@ -1,7 +1,7 @@
 Todo
 +easy approval system
--new staff app
--link to staff from profile, if staff. staff links to approval.
+-approval posts link to a custom review post page
+-review post page has approve button and a delete button
 
 +post approval alerts
 
