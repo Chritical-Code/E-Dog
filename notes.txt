@@ -1,7 +1,9 @@
 Todo
-+post approval
--approval alerts
--easy approval system
++easy approval system
+-new staff app
+-link to staff from profile, if staff. staff links to approval.
+
++post approval alerts
 
 +about sections
 -mention this is a demo site

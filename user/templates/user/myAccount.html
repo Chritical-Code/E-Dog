@@ -12,10 +12,8 @@
             <!--header-->
 			{% include "browse/header.html" %}
 			
-			<!--page title-->
 			<h2>Account</h2>
 			
-			<!--page body-->
 			<div class="myAccount">
 				<h3>Username</h3>
 				<a href="/user/{{user.username}}"><p>{{user.username}}</p></a>
@@ -30,6 +28,14 @@
 				<h3>Email</h3>
 				<p>{{user.email}}</p>
 			</div>
+
+			{% if user.is_staff %}
+			<!--staff page button-->
+				<div class="v-gap-L"></div>
+				<div class="row">
+					<button class="buttonLink" onclick="window.location.href='/staff/';"><p>Staff Portal</p></button>
+				</div>
+			{% endif %}
 
 			<!--sign out button-->
 			<div class="v-gap-L"></div>

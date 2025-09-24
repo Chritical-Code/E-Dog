@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     "browse.apps.BrowseConfig",
     "user.apps.UserConfig",
     "post.apps.PostConfig",
+    "staff.apps.StaffConfig",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

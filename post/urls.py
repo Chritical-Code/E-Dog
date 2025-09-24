@@ -1,11 +1,6 @@
-#Post url config
-
-#import
 from django.urls import path
 from . import views
 
-
-#url
 urlpatterns = [
     path("manage/", views.postManager, name="postManager"),
     path("tryCreatePost/", views.tryCreatePost, name="tryCreatePost"),
