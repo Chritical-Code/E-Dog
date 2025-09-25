@@ -1,9 +1,8 @@
 Todo
 
-+bug fix
+Bug Fix
 
 Easy
-+mention in about some disclaimers, like ai, user content, demo site, and approvals
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
 +rename gaps, maybe gap-vs gap-hm, or something better
