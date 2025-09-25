@@ -1,13 +1,11 @@
 Todo
-
-+about sections
--mention this is a demo site
--mention post approval system
-
-+bug fix- add unique tag to all uploaded pictures to avoid duplicate complications
 +consider changing login submit button to read log in
 
++bug fix
+-add unique tag to all uploaded pictures to avoid duplicate complications
+
 Easy
++mention in about some disclaimers, like ai, user content, demo site, and approvals
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
 +rename gaps, maybe gap-vs gap-hm, or something better
