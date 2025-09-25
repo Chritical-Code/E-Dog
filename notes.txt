@@ -1,9 +1,4 @@
 Todo
-+easy approval system
--approval posts link to a custom review post page
--review post page has approve button and a delete button
-
-+post approval alerts
 
 +about sections
 -mention this is a demo site
@@ -16,9 +11,11 @@ Easy
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
 +rename gaps, maybe gap-vs gap-hm, or something better
++clean old redundant comments
 
 
 Medium
++add confirm delete to approval system
 +set file size limits on nginx backups
 +rework git ignore
 +deal with empty pic folders
@@ -29,6 +26,7 @@ Medium
 
 
 Hard
++post approval alerts
 +add notifications and messages page
 +Rework browse posts sections, adding fetch
 +make a cropper.js and handle improper image sizes

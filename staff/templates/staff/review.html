@@ -45,6 +45,18 @@
 					<h3>Date Posted</h3>
 					<p>{{post.dateCreated}}</p>
 				</div>
+
+				<form id="approvalForm" class="row" action="/staff/doapprove/" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input id="aprovalButton" class="buttonLink btnGreen" type="submit" value="Approve">
+					<input type="hidden" name="postPK" value="{{post.pk}}"/>
+				</form>
+
+				<form id="deleteForm" class="row" action="/staff/dodelete/" method="post" enctype="multipart/form-data">
+					{% csrf_token %}
+					<input id="deleteApprovalButton" class="buttonLink btnRed" type="submit" value="Delete">
+					<input type="hidden" name="postPK" value="{{post.pk}}"/>
+				</form>
 				
 			{% else %}
 				<p>No Posts</p>

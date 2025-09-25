@@ -315,6 +315,25 @@ input[type="file"]::file-selector-button:active{
   width: 60px;
 }
 
+.btnRed[type="submit"]{
+  background-color: rgb(240, 51, 27);
+}
+.btnRed[type="submit"]:hover{
+  background-color: rgb(177, 38, 19);
+}
+.btnRed[type="submit"]:active{
+  background-color: rgb(109, 24, 12);
+}
+
+.btnGreen[type="submit"]{
+  background-color: rgb(22, 255, 138);
+}
+.btnGreen[type="submit"]:hover{
+  background-color: rgb(16, 184, 100);
+}
+.btnGreen[type="submit"]:active{
+  background-color: rgb(12, 126, 69);
+}
 
 /*login*/
 .loginForm{
