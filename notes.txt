@@ -1,18 +1,18 @@
 Todo
-+consider changing login submit button to read log in
 
 +bug fix
--add unique tag to all uploaded pictures to avoid duplicate complications
 
 Easy
 +mention in about some disclaimers, like ai, user content, demo site, and approvals
 +show newest posts first in manage
 +hover color changes: nav, borders, posts
 +rename gaps, maybe gap-vs gap-hm, or something better
-+clean old redundant comments
 
 
 Medium
++clean old redundant comments
++rename every function to snake_case
++rename every variable to snake_case
 +add confirm delete to approval system
 +set file size limits on nginx backups
 +rework git ignore
@@ -21,6 +21,7 @@ Medium
 +consider moving pinned to posts app
 +consider replacing "pin" button with an icon
 +recent posts only goes by date, consider adding time too
++randomly sift through and clean/organize old stuff
 
 
 Hard
