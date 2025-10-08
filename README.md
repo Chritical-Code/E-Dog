@@ -6,7 +6,7 @@
 
 ### A web app for buying and selling dogs. Made in Django (Python).
 
-![Home page](/docs/images/overview.png)
+![Home page](/docs/images/overview.jpg)
 
 ## Features
 
@@ -14,31 +14,31 @@
 
 Users can sign up to create an account, log in, view account details, and log out.
 
-![Account page](/docs/images/account.png)
+![Account page](/docs/images/account.jpg)
 
 ### Creating Posts
 
 Users can create and edit posts for dogs they wish to sell.
 
-![Edit post page](/docs/images/edit.png)
+![Edit post page](/docs/images/edit.jpg)
 
 ### Viewing Posts
 
 Users can click on posts to view more details about the dog. Each post will also link to the seller's profile.
 
-![Post page](/docs/images/post.png)
+![Post page](/docs/images/post.jpg)
 
 ### Pins
 
 Users can pin posts they find, making them easy to locate later.
 
-![Pins page](/docs/images/pin.png)
+![Pins page](/docs/images/pin.jpg)
 
 ### Search
 
 Users can search for specific breeds of dog, making it easy to find what they are looking for.
 
-![Search page](/docs/images/search.png)
+![Search page](/docs/images/search.jpg)
 
 ## Technical Details
 
