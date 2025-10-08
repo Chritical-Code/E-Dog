@@ -55,3 +55,7 @@ The post app handles everything related to posts. This includes creating/editing
 `user`
 
 The user app handles all things related to accounts. Login, sign up, profile pages, and pinned posts are here.
+
+`staff`
+
+The staff app is for simplifying moderation tasks. Currently this is limited to post reviewing.
