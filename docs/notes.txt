@@ -9,6 +9,7 @@ Easy
 
 
 Medium
++replace png with jpg in readme docs and portfolio site
 +clean old redundant comments
 +rename every function to snake_case
 +rename every variable to snake_case
