@@ -38,7 +38,7 @@ A model represents a table in the database. Views can access data through them. 
 
 `forms.py`
 
-Custom forms can be defined, usually corresponding to a model. This simplifies how user input is defined.
+Custom forms can be defined, usually corresponding to a model. This simplifies how user input is handled.
 
 ## e-Dog
 
