@@ -8,54 +8,52 @@ This project requires an understanding of Django. A brief summary of Django will
 
 ### Django
 
-`manage.py`
+#### manage.py
 
 This is the starting point of the application. It handles commands, such as "python manage.py runserver".
 
-`settings.py`
+#### settings.py
 
 These are the project settings. They are pretty important.
 
-`apps`
+#### apps
 
 Projects are made up of apps. They are used to encapsulate different parts of the project. Examples include browse, post, staff, and user. Each app has its own URLs, views, models, etc.
 
-`urls.py`
+#### urls.py
 
 This handles URL routing. Each app can define its own paths and subpaths. URLs usually lead to views.
 
-`views.py`
+#### views.py
 
 This is where the bulk of the application logic goes. Views can run code, interact with models, create forms, and more. Views trigger when a URL is visited. After handling logic, they return the correct HTML and data to the user.
 
-`templates`
+#### templates
 
 This is where the HTML is written. This HTML can also include server-processed logic.
 
-`models`
+#### models
 
 A model represents a table in the database. Views can access data through them. Django can automatically modify the database to match models through migrations.
 
-`forms.py`
+#### forms.py
 
 Custom forms can be defined, usually corresponding to a model. This simplifies how user input is handled.
 
-## e-Dog
+### e-Dog's Apps
 
-This project is structured as a series of apps. A brief summary of each will be provided.
-
-`browse`
+#### browse
  
 The browse app handles most of the post showcasing. It includes the home page and search results.
 
-`post`
+#### post
 
 The post app handles everything related to posts. This includes creating/editing posts and viewing them after.
 
-`user`
+#### user
 
 The user app handles all things related to accounts. Login, sign up, profile pages, and pinned posts are here.
 
-`staff`
+#### staff
 
 The staff app is for simplifying moderation tasks. Currently this is limited to post reviewing.
