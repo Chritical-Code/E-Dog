@@ -52,7 +52,7 @@ The browse app handles most of the post showcasing. It includes the home page an
 
 #### post
 
-The post app handles everything related to posts. This includes creating/editing posts and viewing them after.
+The post app handles everything else related to posts. This includes creating/editing posts and viewing them after.
 
 #### user
 
