@@ -4,17 +4,19 @@
 
 ## Structure
 
-This project requires an understanding of Django. A brief summary of Django will be given, followed by the project's structure.
+To assist with future development and code review, this section will cover the project's structure.
 
 ### Django
 
+Knowing how Django works is vital to this project. The following will summarize Django's most important parts.
+
 #### manage.py
 
-This is the starting point of the application. It handles commands, such as "python manage.py runserver".
+This is the starting point of the application. It can be used for commands like `runserver`, `migrate`, and `collectstatic`.
 
 #### settings.py
 
-These are the project settings. They are pretty important.
+These are the project settings. Important project-wide configuration is done here.
 
 #### apps
 
@@ -22,7 +24,7 @@ Projects are made up of apps. They are used to encapsulate different parts of th
 
 #### urls.py
 
-This handles URL routing. Each app can define its own paths and subpaths. URLs usually lead to views.
+This handles URL routing. Each app can define its own paths and sub-paths. URLs usually lead to views.
 
 #### views.py
 
@@ -41,6 +43,8 @@ A model represents a table in the database. Views can access data through them. 
 Custom forms can be defined, usually corresponding to a model. This simplifies how user input is handled.
 
 ### e-Dog's Apps
+
+This project's functionality is split into multiple apps. Here is a summary of each.
 
 #### browse
  
