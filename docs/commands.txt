@@ -1,4 +1,4 @@
-Relevant Django Commands
+Relevant Commands
 
 
 # common
@@ -10,6 +10,9 @@ py manage.py runserver
 
 ## "build" project
 py manage.py collectstatic
+
+## Unstage a file
+git restore --staged <file>
 
 
 
