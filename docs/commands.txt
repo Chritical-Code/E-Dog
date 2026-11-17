@@ -1,0 +1,43 @@
+Relevant Django Commands
+
+
+# common
+## activate venv
+source .venv/bin/activate
+
+## run server
+py manage.py runserver
+
+## "build" project
+py manage.py collectstatic
+
+
+
+# slightly less common
+## open shell
+py manage.py shell
+
+## database migrations
+py manage.py makemigrations
+py manage.py migrate
+
+## new app
+py manage.py startapp app_name
+
+
+
+# setup related
+## install requirements
+pip install -r requirements.txt
+
+## generate package requirements file
+pip freeze > requirements.txt
+
+# list updates
+pip list --outdated package_name
+
+## update one
+pip install --upgrade package_name
+
+## update all (use sparingly)
+pip list --outdated --format=freeze | xargs pip install --upgrade
